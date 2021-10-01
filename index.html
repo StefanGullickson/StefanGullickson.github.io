@@ -4,6 +4,20 @@
 <h1 style = "color:green;"> MacGuessr </h1>
 <p id = "MCG_UP" style = 
 "font-size: 15px; font-weight: bold;"></p>
-<button onclick = "MCG_Pic()" > click to start </button>
+<button onclick = "MCG_Pic()" > click here </button>
+<p id = "MCG_DOWN" style = 
+            "color:green; font-size: 20px; font-weight: bold;"> 
+    </p> 
+<script> 
+    var up = document.getElementById('MCG_UP'); 
+    up.innerHTML = "Click button to start"; 
+    var down = document.getElementById('MCG_DOWN'); 
+    function MCG_Pic() {
+        var img = document.createElement('img');
+        img.src = 'Downloads/mcgpic.png';
+        document.getElementById('body').appendChild(img);
+        down.innerHTML = "Image Element Added."; 
+    } 
+</script> 
 </body>
 </html>

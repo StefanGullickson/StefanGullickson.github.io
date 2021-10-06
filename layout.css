@@ -1,5 +1,6 @@
 h1 {
     color:green;
+    font-size: larger;
 }
 
 body {
@@ -7,5 +8,5 @@ body {
 }
 
 * {
-    font:helvetica;
+    font-style:helvetica;
 }

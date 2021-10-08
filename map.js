@@ -4,6 +4,9 @@ var up = document.getElementById('MCG_UP');
     function MCG_Pic() {
         var img = document.createElement('img');
         img.src = 'mac-guessr/mcgpic.png';
-        document.getElementById('body').appendChild(img);
-        down.innerHTML = " ";
+
+        if (!document.getElementById('body').contains(img)) {
+            document.getElementById('body').appendChild(img);
+            down.innerHTML = " ";
+        }
     } 

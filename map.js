@@ -12,6 +12,11 @@ var up = document.getElementById('MCG_UP');
             document.getElementById('body').appendChild(img);
             down.innerHTML = " ";
         }
+
+        if (!document.getElementById('body').contains(img2)) {
+            document.getElementById('body').appendChild(img2);
+            down.innerHTML = " ";
+        }
     } 
     const map = new Map();
     map.set(b1, 'Janet Wallace Fine Arts Center');

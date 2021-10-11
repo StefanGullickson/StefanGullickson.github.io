@@ -4,8 +4,14 @@ var up = document.getElementById('MCG_UP');
     function MCG_Pic() {
         var img = document.createElement('img');
         img.src = 'mac-guessr/mcgpic.png';
+        img.css('position', 'absolute');
+        img.css('top', 20);
+        img.css('right', 50);
         var img2 = document.createElement('img');
         img2.src = 'mac-guessr/theater1.jpg';
+        img2.css('position', 'absolute');
+        img2.css('top', 20);
+        img2.css('left', 50);
 
         if (!document.getElementById('body').contains(img)) {
             document.getElementById('body').appendChild(img);

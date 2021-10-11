@@ -4,12 +4,10 @@ var up = document.getElementById('MCG_UP');
     function MCG_Pic() {
         var img = document.createElement('img');
         img.src = 'mac-guessr/mcgpic.png';
-        img.style.position = 'absolute';
         img.style.left = '400px'
         img.style.top = '30px'
         var img2 = document.createElement('img');
         img2.src = 'mac-guessr/theater1.jpg';
-        img2.style.position = 'absolute';
         img2.style.left = '50px'
         img2.style.top = '30px'
 

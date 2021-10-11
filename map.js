@@ -59,3 +59,10 @@ var up = document.getElementById('MCG_UP');
         }
         return "Game Over!"
     }
+
+    var head = document.getElementsByTagName('HEAD')[0]; 
+        var link = document.createElement('link');
+        link.rel = 'stylesheet'; 
+        link.type = 'text/css';
+        link.href = 'layout.css'; 
+        document.body.appendChild(link);

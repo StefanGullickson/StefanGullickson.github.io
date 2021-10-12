@@ -12,6 +12,13 @@ body {
     font-weight: bold;
 }
 
+button {
+    border: none;
+    padding: 15px 30px;
+    display: inline-block;
+    color: whitesmoke;
+}
+
 #MCG_DOWN {
     color:green; 
     font-size: 20px; 

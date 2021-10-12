@@ -4,25 +4,13 @@ var up = document.getElementById('MCG_UP');
     function MCG_Pic() {
         var img = document.createElement('img');
         img.src = 'mac-guessr/mcgpic.png';
+        var img = document.createElement('img');
+        img.src = 'mac-guessr/theater1.jpg';
 
         if (!document.getElementById('body').contains(img)) {
             document.getElementById('body').appendChild(img);
             down.innerHTML = " ";
         }
-        img.style.position = "absolute"
-        img.style.top = "30px"
-        img.style.left = "300px"
-        
-        var img2 = document.createElement('img');
-        img2.src = 'mac-guessr/theater1.jpg';
-
-        if (!document.getElementById('body').contains(img2)) {
-            document.getElementById('body').appendChild(img2);
-            down.innerHTML = " ";
-        }
-        img.style.position = "absolute"
-        img.style.top = "30px"
-        img.style.left = "50px"
     } 
     const map = new Map();
     map.set(b1, 'Janet Wallace Fine Arts Center');
@@ -60,9 +48,21 @@ var up = document.getElementById('MCG_UP');
         return "Game Over!"
     }
 
-    var head = document.getElementsByTagName('HEAD')[0]; 
+campusMap.addEventListener("click", getClickPosition, false);
+
+function getClickPosition(event) {
+    var xPosition = x.clientX;
+    var yPosition = y.clientY;
+    return {
+        x: xPosition,
+        y: yPosition
+    };
+}
+
+var head = document.getElementsByTagName('HEAD')[0]; 
         var link = document.createElement('link');
         link.rel = 'stylesheet'; 
         link.type = 'text/css';
         link.href = 'layout.css'; 
         document.body.appendChild(link);
+

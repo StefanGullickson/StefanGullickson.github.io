@@ -4,11 +4,15 @@ var up = document.getElementById('MCG_UP');
     function MCG_Pic() {
         var img = document.createElement('img');
         img.src = 'mac-guessr/mcgpic.png';
-        var img = document.createElement('img');
-        img.src = 'mac-guessr/theater1.jpg';
-
         if (!document.getElementById('body').contains(img)) {
             document.getElementById('body').appendChild(img);
+            down.innerHTML = " ";
+        }
+
+        var img2 = document.createElement('img');
+        img2.src = 'mac-guessr/theater1.jpg';
+        if (!document.getElementById('body').contains(img2)) {
+            document.getElementById('body').appendChild(img2);
             down.innerHTML = " ";
         }
     } 

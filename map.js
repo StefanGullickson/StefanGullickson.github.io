@@ -17,8 +17,8 @@ var up = document.getElementById('MCG_UP');
         document.getElementById("Button").disabled=true;
         document.getElementById("Button").hidden=true;
         document.getElementById("MCG_UP").hidden=true;
-        document.body.remove(document.getElementById("Button"));
-        down.innerHTML = "Select which building you think the image was taken in!";
+        // document.body.remove(document.getElementById("Button"));
+        // down.innerHTML = "Select which building you think the image was taken in!";
     } 
     const map = new Map();
     map.set(b1, 'Janet Wallace Fine Arts Center');

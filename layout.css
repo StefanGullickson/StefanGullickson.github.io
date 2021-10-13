@@ -24,10 +24,10 @@ body {
 .How_To {
     position: absolute;
     left: 90%;
-    top: 8%;
-    font-size: 15px;
+    top: 2%;
+    font-size: 20px;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    color: gray;
+    color: rgb(194, 194, 194);
     /* &: hover{
         transform: scale(1.05);
     } */

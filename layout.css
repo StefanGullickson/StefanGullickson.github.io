@@ -22,8 +22,9 @@ body {
 }
 
 .How_To {
+    position: absolute;
     left: 90%;
-    top: 10%;
+    top: 8%;
     font-size: 15px;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     color: gray;

@@ -18,6 +18,7 @@ var up = document.getElementById('MCG_UP');
         document.getElementById("Button").hidden=true;
         document.getElementById("MCG_UP").hidden=true;
     } 
+
     const map = new Map();
     map.set(b1, 'Janet Wallace Fine Arts Center');
     map.set(b2, 'Theater and Dance Building');
@@ -34,8 +35,14 @@ var up = document.getElementById('MCG_UP');
     map.set(b13, 'Kagin Commons');
     
     
-    
+
+    function returnGuessObject(x, y) {
+        return document.elementFromPoint(x, y);
+    }
+
+
     let guessMatch = False;
+    let guess = returnGuessObject(x,y);
     function ifguessMatch(guess, correct){
         if (guess === correct) {
            guessMatch = True;

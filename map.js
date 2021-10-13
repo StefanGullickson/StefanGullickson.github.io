@@ -17,6 +17,8 @@ var up = document.getElementById('MCG_UP');
         document.getElementById("Button").disabled=true;
         document.getElementById("Button").hidden=true;
         document.getElementById("MCG_UP").hidden=true;
+        // document.body.remove(document.getElementById("Button"));
+        // down.innerHTML = "Select which building you think the image was taken in!";
     } 
 
     const map = new Map();
@@ -65,13 +67,13 @@ var up = document.getElementById('MCG_UP');
 function getClickPosition(event) {
     var xPosition = event.clientX;
     var yPosition = event.clientY;
-    document.body.textContent =
-    "x: " + event.clientX +
-    " - y: " + event.clientY;
-    return {
-        x: xPosition,
-        y: yPosition
-    };
+    down.innerHTML =
+    "x: " + xPosition +
+    " - y: " + yPosition;
+    // return {
+    //     x: xPosition,
+    //     y: yPosition
+    // };
 }
 
 campusMap.addEventListener("click", getClickPosition);

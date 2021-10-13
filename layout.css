@@ -21,16 +21,13 @@ body {
     font-weight: bold;
 }
 
-.How_To {
+#How_To {
     position: absolute;
     left: 90%;
-    top: 2%;
+    top: 1.3%;
     font-size: 20px;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     color: rgb(194, 194, 194);
-    /* &: hover{
-        transform: scale(1.05);
-    } */
 }
 
 

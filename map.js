@@ -3,20 +3,20 @@ var up = document.getElementById('MCG_UP');
     var down = document.getElementById('MCG_DOWN'); 
     function MCG_Pic() {
         var img = document.createElement('img');
-        img.src = 'mac-guessr/mcgpic.png';
-        img.style.height = "450px";
-        if (!document.getElementById('body').contains(img)) {
-            document.getElementById('body').appendChild(img);
-            down.innerHTML = " ";
-        }
+        img.src = 'mac-guessr/mcgpicupdate.png';
+        img.style.height = "600px";
+        document.getElementById('body').appendChild(img);
+        down.innerHTML = " ";
 
         var img2 = document.createElement('img');
         img2.src = 'mac-guessr/theater1.jpg';
-        img2.style.height = "450px";
-        if (!document.getElementById('body').contains(img2)) {
-            document.getElementById('body').appendChild(img2);
-            down.innerHTML = " ";
-        }
+        img2.style.height = "600px";
+        document.getElementById('body').appendChild(img2);
+        down.innerHTML = " ";
+
+        document.getElementById("Button").disabled=true;
+        document.getElementById("Button").hidden=true;
+        document.getElementById("MCG_UP").hidden=true;
     } 
     const map = new Map();
     map.set(b1, 'Janet Wallace Fine Arts Center');
@@ -71,4 +71,9 @@ var head = document.getElementsByTagName('HEAD')[0];
         link.type = 'text/css';
         link.href = 'layout.css'; 
         document.body.appendChild(link);
+
+
+function randNumber(max) {
+    return Math.floor((Math.random()*max-1)+1);
+}
 

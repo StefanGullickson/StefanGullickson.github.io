@@ -5,19 +5,16 @@ var up = document.getElementById('MCG_UP');
         var img = document.createElement('img');
         img.src = 'mac-guessr/mcgpicupdate.png';
         img.style.height = "600px";
-        if (!document.body.contains(img)) {
-            document.getElementById('body').appendChild(img);
-            down.innerHTML = " ";
-            
-        }
+        document.getElementById('body').appendChild(img);
+        down.innerHTML = " ";
 
         var img2 = document.createElement('img');
         img2.src = 'mac-guessr/theater1.jpg';
         img2.style.height = "600px";
-        if (!document.body.contains(img2)) {
-            document.getElementById('body').appendChild(img2);
-            down.innerHTML = " ";
-        }
+        document.getElementById('body').appendChild(img2);
+        down.innerHTML = " ";
+
+        document.getElementById("").disabled = true;
     } 
     const map = new Map();
     map.set(b1, 'Janet Wallace Fine Arts Center');

@@ -27,7 +27,7 @@ var up = document.getElementById('MCG_UP');
         document.getElementById("Button").hidden=true;
         document.getElementById("MCG_UP").hidden=true;
         // document.body.remove(document.getElementById("Button"));
-        // down.innerHTML = "Select which building you think the image was taken in!";
+        down.innerHTML = "Select which building you think the image was taken in!";
     } 
 
     const map = new Map();

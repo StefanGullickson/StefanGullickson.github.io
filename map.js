@@ -71,4 +71,7 @@ var head = document.getElementsByTagName('HEAD')[0];
         document.body.appendChild(link);
 
 
-let randImage = Math.random()*100;
+function randNumber(max) {
+    return Math.floor((Math.random()*max-1)+1);
+}
+

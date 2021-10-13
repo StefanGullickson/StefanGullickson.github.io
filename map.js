@@ -8,6 +8,15 @@ var up = document.getElementById('MCG_UP');
         document.getElementById('body').appendChild(img);
         down.innerHTML = " ";
 
+        // randomly generate an image from a list to show up on the screen
+        const img_src = ['mac-guessr/theater1.jpg','']
+        var img_choose = document.createElement('img');
+        img_choose.src = img_src[randNumber(img_src.length)]
+        img_choose.style.height = "600px";
+        document.getElementById('body').appendChild(img_choose);
+        down.innerHTML = " ";
+        ///////////////
+
         var img2 = document.createElement('img');
         img2.src = 'mac-guessr/theater1.jpg';
         img2.style.height = "600px";
@@ -23,7 +32,7 @@ var up = document.getElementById('MCG_UP');
 
     const map = new Map();
     map.set(b1, 'Janet Wallace Fine Arts Center');
-    map.set(b2, 'Theater and Dance Building');
+    map.set('mac-guessr/theater1.jpg', b2); //'Theater and Dance Building'
     map.set(b3, 'Joan Adams Mondale Hall of Studio Art');
     map.set(b4, 'Humanities Building');
     map.set(b5,'Olin-Rice Science Center');
@@ -45,6 +54,7 @@ var up = document.getElementById('MCG_UP');
 
     let guessMatch = False;
     let guess = returnGuessObject(x,y);
+    let correct = map.get('mac-guessr/theater1.jpg');
     function ifguessMatch(guess, correct){
         if (guess === correct) {
            guessMatch = True;

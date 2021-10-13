@@ -58,7 +58,7 @@ var up = document.getElementById('MCG_UP');
 function getClickPosition(event) {
     var xPosition = event.clientX;
     var yPosition = event.clientY;
-    document.body.textContent =
+    down.innerHTML =
     "x: " + event.clientX +
     " - y: " + event.clientY;
     return {

@@ -54,16 +54,20 @@ var up = document.getElementById('MCG_UP');
         return "Game Over!"
     }
 
-campusMap.addEventListener("click", getClickPosition, false);
 
 function getClickPosition(event) {
-    var xPosition = x.clientX;
-    var yPosition = y.clientY;
+    var xPosition = event.clientX;
+    var yPosition = event.clientY;
+    document.body.textContent =
+    "x: " + event.clientX +
+    " - y: " + event.clientY;
     return {
         x: xPosition,
         y: yPosition
     };
 }
+
+campusMap.addEventListener("click", getClickPosition);
 
 var head = document.getElementsByTagName('HEAD')[0]; 
         var link = document.createElement('link');

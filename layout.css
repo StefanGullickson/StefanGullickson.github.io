@@ -17,9 +17,21 @@ body {
 }
 
 #MCG_UP {
-    font-size: 15px; 
+    font-size: 30px; 
     font-weight: bold;
 }
+
+.How_To {
+    left: 90%;
+    top: 10%;
+    font-size: 15px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: gray;
+    /* &: hover{
+        transform: scale(1.05);
+    } */
+}
+
 
 button {
     border: none;

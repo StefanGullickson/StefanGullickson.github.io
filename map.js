@@ -3,7 +3,7 @@ var up = document.getElementById('MCG_UP');
     var down = document.getElementById('MCG_DOWN'); 
     function MCG_Pic() {
         var img = document.createElement('img');
-        img.src = 'mac-guessr/mcgpic.png';
+        img.src = 'mac-guessr/mcgpicupdate.png';
         img.style.height = "450px";
         if (!document.getElementById('body').contains(img)) {
             document.getElementById('body').appendChild(img);
@@ -72,3 +72,5 @@ var head = document.getElementsByTagName('HEAD')[0];
         link.href = 'layout.css'; 
         document.body.appendChild(link);
 
+
+let randImage = Math.random()*100;

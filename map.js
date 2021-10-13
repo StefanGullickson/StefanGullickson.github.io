@@ -8,6 +8,15 @@ var up = document.getElementById('MCG_UP');
         document.getElementById('body').appendChild(img);
         down.innerHTML = " ";
 
+        // randomly generate an image from a list to show up on the screen
+        const img_src = ['mac-guessr/theater1.jpg','']
+        var img_choose = document.createElement('img');
+        img_choose.src = img_src[randNumber(img_src.length)]
+        img_choose.style.height = "600px";
+        document.getElementById('body').appendChild(img_choose);
+        down.innerHTML = " ";
+        ///////////////
+
         var img2 = document.createElement('img');
         img2.src = 'mac-guessr/theater1.jpg';
         img2.style.height = "600px";
@@ -17,10 +26,13 @@ var up = document.getElementById('MCG_UP');
         document.getElementById("Button").disabled=true;
         document.getElementById("Button").hidden=true;
         document.getElementById("MCG_UP").hidden=true;
+        // document.body.remove(document.getElementById("Button"));
+        // down.innerHTML = "Select which building you think the image was taken in!";
     } 
+
     const map = new Map();
     map.set(b1, 'Janet Wallace Fine Arts Center');
-    map.set(b2, 'Theater and Dance Building');
+    map.set('mac-guessr/theater1.jpg', b2); //'Theater and Dance Building'
     map.set(b3, 'Joan Adams Mondale Hall of Studio Art');
     map.set(b4, 'Humanities Building');
     map.set(b5,'Olin-Rice Science Center');
@@ -34,8 +46,15 @@ var up = document.getElementById('MCG_UP');
     map.set(b13, 'Kagin Commons');
     
     
-    
+
+    function returnGuessObject(x, y) {
+        return document.elementFromPoint(x, y);
+    }
+
+
     let guessMatch = False;
+    let guess = returnGuessObject(x,y);
+    let correct = map.get('mac-guessr/theater1.jpg');
     function ifguessMatch(guess, correct){
         if (guess === correct) {
            guessMatch = True;
@@ -58,13 +77,13 @@ var up = document.getElementById('MCG_UP');
 function getClickPosition(event) {
     var xPosition = event.clientX;
     var yPosition = event.clientY;
-    document.body.textContent =
-    "x: " + event.clientX +
-    " - y: " + event.clientY;
-    return {
-        x: xPosition,
-        y: yPosition
-    };
+    down.innerHTML =
+    "x: " + xPosition +
+    " - y: " + yPosition;
+    // return {
+    //     x: xPosition,
+    //     y: yPosition
+    // };
 }
 
 campusMap.addEventListener("click", getClickPosition);

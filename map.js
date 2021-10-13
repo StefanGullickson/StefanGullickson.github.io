@@ -59,12 +59,12 @@ function getClickPosition(event) {
     var xPosition = event.clientX;
     var yPosition = event.clientY;
     down.innerHTML =
-    "x: " + event.clientX +
-    " - y: " + event.clientY;
-    return {
-        x: xPosition,
-        y: yPosition
-    };
+    "x: " + xPosition +
+    " - y: " + yPosition;
+    // return {
+    //     x: xPosition,
+    //     y: yPosition
+    // };
 }
 
 campusMap.addEventListener("click", getClickPosition);

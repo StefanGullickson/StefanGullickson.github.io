@@ -3,8 +3,8 @@ up.innerHTML = "Click button to start";
 var down = document.getElementById('MCG_DOWN'); 
     
 const map = new Map();
-map.set(0, 'mac-guessr/carnegie1.jpg'); //Carnegie Hall
-map.set(1, 'mac-guessr/theater1.jpg'); //Theater and Dance Building
+map.set(0, "mac-guessr/carnegie1.jpg"); //Carnegie Hall
+map.set(1, "mac-guessr/theater1.jpg"); //Theater and Dance Building
 map.set(2, 'Joan Adams Mondale Hall of Studio Art');
 map.set(3, 'Humanities Building');
 map.set(4,'Olin-Rice Science Center');

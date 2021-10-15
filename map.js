@@ -1,10 +1,28 @@
 var up = document.getElementById('MCG_UP'); 
     up.innerHTML = "Click button to start"; 
     var down = document.getElementById('MCG_DOWN'); 
+    
+    const map = new Map();
+    map.set(0, 'mac-guessr/carnegie1.jpg'); //Carnegie Hall
+    map.set(1, 'mac-guessr/theater1.jpg'); //Theater and Dance Building
+    map.set(2, 'Joan Adams Mondale Hall of Studio Art');
+    map.set(3, 'Humanities Building');
+    map.set(4,'Olin-Rice Science Center');
+    map.set(5, 'Leonard Center athletics and wellness complex');
+    map.set(6, 'Janet Wallace Fine Arts Center');
+    map.set(7, 'Old Main');
+    map.set(8, 'DeWitt Wallace Library');
+    map.set(9, 'Ruth Stricker Dayton Campus Center');
+    map.set(10,'Weyerhaeuser Memorial Chapel');
+    map.set(11, 'Markim Hall');
+    map.set(12, 'Kagin Commons');
+    
+
     function MCG_Pic() {
 
         let randNum = randNumber(1);
         let randImage = map.get(randNum);
+        down.innerHTML = randImage;
 
         var img = document.createElement('img');
         img.src = 'mac-guessr/mcgpicupdate.png';
@@ -26,26 +44,8 @@ var up = document.getElementById('MCG_UP');
         document.getElementById("Button").disabled=true;
         document.getElementById("Button").hidden=true;
         document.getElementById("MCG_UP").hidden=true;
-        // document.body.remove(document.getElementById("Button"));
-        down.innerHTML = "Select which building you think the image was taken in!";
+        // down.innerHTML = "Select which building you think the image was taken in!";
     } 
-
-    const map = new Map();
-    map.set(0, 'mac-guessr/carnegie1.jpg'); //Carnegie Hall
-    map.set(1, 'mac-guessr/theater1.jpg'); //Theater and Dance Building
-    map.set(2, 'Joan Adams Mondale Hall of Studio Art');
-    map.set(3, 'Humanities Building');
-    map.set(4,'Olin-Rice Science Center');
-    map.set(5, 'Leonard Center athletics and wellness complex');
-    map.set(6, 'Janet Wallace Fine Arts Center');
-    map.set(7, 'Old Main');
-    map.set(8, 'DeWitt Wallace Library');
-    map.set(9, 'Ruth Stricker Dayton Campus Center');
-    map.set(10,'Weyerhaeuser Memorial Chapel');
-    map.set(11, 'Markim Hall');
-    map.set(12, 'Kagin Commons');
-    
-    
 
     function returnGuessObject(x, y) {
         return document.elementFromPoint(x, y);

@@ -2,26 +2,26 @@ var up = document.getElementById('MCG_UP');
     up.innerHTML = "Click button to start"; 
     var down = document.getElementById('MCG_DOWN'); 
     function MCG_Pic() {
+
+        let randNum = randNumber(1);
+        let randImage = map.get(randNum);
+
         var img = document.createElement('img');
         img.src = 'mac-guessr/mcgpicupdate.png';
         img.style.height = "600px";
         document.getElementById('body').appendChild(img);
-        down.innerHTML = " ";
+        // down.innerHTML = " ";
 
         // randomly generate an image from a list to show up on the screen
-        const img_src = ['mac-guessr/theater1.jpg','']
-        var img_choose = document.createElement('img');
-        img_choose.src = img_src[randNumber(img_src.length)]
+        // const img_src = ['mac-guessr/theater1.jpg','']
+        var img_choose = document.createElement('img_choose');
+        // img_choose.src = img_src[randNumber(img_src.length)]
+        img_choose.src = randImage;
         img_choose.style.height = "600px";
         document.getElementById('body').appendChild(img_choose);
-        down.innerHTML = " ";
+        // down.innerHTML = " ";
         ///////////////
 
-        var img2 = document.createElement('img');
-        img2.src = 'mac-guessr/theater1.jpg';
-        img2.style.height = "600px";
-        document.getElementById('body').appendChild(img2);
-        down.innerHTML = " ";
 
         document.getElementById("Button").disabled=true;
         document.getElementById("Button").hidden=true;
@@ -31,19 +31,19 @@ var up = document.getElementById('MCG_UP');
     } 
 
     const map = new Map();
-    map.set(b1, 'Janet Wallace Fine Arts Center');
-    map.set('mac-guessr/theater1.jpg', b2); //'Theater and Dance Building'
-    map.set(b3, 'Joan Adams Mondale Hall of Studio Art');
-    map.set(b4, 'Humanities Building');
-    map.set(b5,'Olin-Rice Science Center');
-    map.set(b6, 'Leonard Center athletics and wellness complex');
-    map.set(b7, 'Carnegie Hall');
-    map.set(b8, 'Old Main');
-    map.set(b9, 'DeWitt Wallace Library');
-    map.set(b10, 'Ruth Stricker Dayton Campus Center');
-    map.set(b11,'Weyerhaeuser Memorial Chapel');
-    map.set(b12, 'Markim Hall');
-    map.set(b13, 'Kagin Commons');
+    map.set(0, 'mac-guessr/carnegie1.jpg'); //Carnegie Hall
+    map.set(1, 'mac-guessr/theater1.jpg'); //Theater and Dance Building
+    map.set(2, 'Joan Adams Mondale Hall of Studio Art');
+    map.set(3, 'Humanities Building');
+    map.set(4,'Olin-Rice Science Center');
+    map.set(5, 'Leonard Center athletics and wellness complex');
+    map.set(6, 'Janet Wallace Fine Arts Center');
+    map.set(7, 'Old Main');
+    map.set(8, 'DeWitt Wallace Library');
+    map.set(9, 'Ruth Stricker Dayton Campus Center');
+    map.set(10,'Weyerhaeuser Memorial Chapel');
+    map.set(11, 'Markim Hall');
+    map.set(12, 'Kagin Commons');
     
     
 
@@ -97,6 +97,6 @@ var head = document.getElementsByTagName('HEAD')[0];
 
 
 function randNumber(max) {
-    return Math.floor((Math.random()*max-1)+1);
+    return Math.round((Math.random()*max));
 }
 

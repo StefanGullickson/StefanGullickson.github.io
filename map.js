@@ -47,7 +47,6 @@ function MCG_Pic() {
 
 
     document.getElementById("Button").disabled=true;
-    document.getElementById("Button").hidden=true;
     document.getElementById("MCG_UP").hidden=true;
     // down.innerHTML = "Select which building you think the image was taken in!";
 } 

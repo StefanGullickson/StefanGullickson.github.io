@@ -86,7 +86,7 @@ function getClickPosition(event) {
     // };
 }
 
-campusMap.addEventListener("click", getClickPosition);
+document.getElementById('img').addEventListener("click", getClickPosition);
 
 var head = document.getElementsByTagName('HEAD')[0]; 
         var link = document.createElement('link');

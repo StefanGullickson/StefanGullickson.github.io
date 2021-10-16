@@ -50,6 +50,11 @@ function MCG_Pic() {
     // down.innerHTML = "Select which building you think the image was taken in!";
 } 
 
+function Game_Rules(x) {
+    x.style.height = "50px";
+}
+
+
 function returnGuessObject(x, y) {
     return document.elementFromPoint(x, y);
 }

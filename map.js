@@ -29,10 +29,10 @@ function MCG_Pic() {
     img.style.height = "600px";
     document.getElementById('body').appendChild(img);
 
-    var img2 = document.createElement("img2");
+    var img2 = document.createElement('img');
     img2.src = randImage;
-    var src = document.getElementById("body");
-    src.appendChild(img2);
+    img2.style.height = "600px";
+    document.getElementById('body').appendChild(img2);
     // down.innerHTML = " ";
 
     // var img3 = document.createElement('img3');

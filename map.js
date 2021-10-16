@@ -28,6 +28,11 @@ function MCG_Pic() {
     img.src = 'mac-guessr/mcgpicupdate.png';
     img.style.height = "600px";
     document.getElementById('body').appendChild(img);
+
+    var img2 = document.createElement("img2");
+    img.src = randImage;
+    var src = document.getElementById("body");
+    src.appendChild(img2);
     // down.innerHTML = " ";
 
     // var img3 = document.createElement('img3');

@@ -30,7 +30,7 @@ function MCG_Pic() {
     document.getElementById('body').appendChild(img);
 
     var img2 = document.createElement("img2");
-    img.src = randImage;
+    img2.src = randImage;
     var src = document.getElementById("body");
     src.appendChild(img2);
     // down.innerHTML = " ";

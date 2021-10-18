@@ -1,7 +1,8 @@
 var up = document.getElementById('MCG_UP'); 
 up.innerHTML = "Click button to start"; 
 var down = document.getElementById('MCG_DOWN'); 
-    
+
+// Map of images to randomly generate 
 const map = new Map();
 map.set(0, "mac-guessr/carnegie1.jpg"); //Carnegie Hall
 map.set(1, "mac-guessr/theater1.jpg"); //Theater and Dance Building
@@ -16,8 +17,8 @@ map.set(9, 'Ruth Stricker Dayton Campus Center');
 map.set(10,'Weyerhaeuser Memorial Chapel');
 map.set(11, 'Markim Hall');
 map.set(12, 'Kagin Commons');
-    
 
+// Begin game function: adds map and random image to body of document
 function MCG_Pic() {
 
     // Creates a string object of a random image name from the image map
@@ -25,10 +26,11 @@ function MCG_Pic() {
     let randImage = map.get(randNum);
     // down.innerHTML = randImage; // This was to check that the string was functioning correctly
 
-    var img = document.createElement('img');
-    img.src = 'mac-guessr/mcgpicupdate.png';
-    img.style.height = "600px";
-    document.getElementById('body').appendChild(img);
+    let mapImage = document.createElement('img');
+    mapImage.src = 'mac-guessr/mcgpicupdate.png';
+    mapImage.style.height = "600px";
+    document.getElementById('body').appendChild(mapImage);
+    mapImage.addEventListener("click", getClickPosition);
 
     // Uses the random image name to add a random image from the image map
     var img2 = document.createElement('img');
@@ -60,40 +62,37 @@ function returnGuessObject(x, y) {
 }
 
 
-let guessMatch = False;
-let guess = returnGuessObject(x,y);
-let correct = map.get('mac-guessr/theater1.jpg');
-function ifguessMatch(guess, correct){
-    if (guess === correct) {
-        guessMatch = True;
-    }
-    guessMatch = False;
-}
-    
-    
-let lives = 3;
-function countLives(){
-    while (lives >0) {
-        if (!guessMatch){
-            lives -=1;
-        }
-    }
-    return "Game Over!"
-}
-
 function getClickPosition(event) {
-    var xPosition = event.clientX;
-    var yPosition = event.clientY;
-    down.innerHTML =
-    "x: " + xPosition +
-    " - y: " + yPosition;
+    var x = event.clientX;
+    var y = event.clientY;
+    console.log("x", x, "y", y, event);
+
+    let guessMatch = false;
+    let guess = returnGuessObject(x,y);
+    let correct = map.get('mac-guessr/theater1.jpg');
+    function ifguessMatch(guess, correct){
+        if (guess === correct) {
+            guessMatch = True;
+        }
+        guessMatch = False;
+    }
+        
+        
+    let lives = 3;
+    function countLives(){
+        while (lives >0) {
+            if (!guessMatch){
+                lives -=1;
+            }
+        }
+        return "Game Over!"
+    }
     // return {
     //     x: xPosition,
     //     y: yPosition
     // };
 }
 
-document.getElementById('img').addEventListener("click", getClickPosition);
 
 var head = document.getElementsByTagName('HEAD')[0]; 
 var link = document.createElement('link');

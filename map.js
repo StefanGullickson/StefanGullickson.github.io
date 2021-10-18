@@ -20,39 +20,34 @@ map.set(12, 'Kagin Commons');
 
 function MCG_Pic() {
 
+    // Creates a string object of a random image name from the image map
     let randNum = randNumber(1);
     let randImage = map.get(randNum);
-    down.innerHTML = randImage;
+    // down.innerHTML = randImage; // This was to check that the string was functioning correctly
 
     var img = document.createElement('img');
     img.src = 'mac-guessr/mcgpicupdate.png';
     img.style.height = "600px";
     document.getElementById('body').appendChild(img);
 
+    // Uses the random image name to add a random image from the image map
     var img2 = document.createElement('img');
     img2.src = randImage;
     img2.style.height = "600px";
     document.getElementById('body').appendChild(img2);
-    // down.innerHTML = " ";
 
-    // var img3 = document.createElement('img3');
-    // img3.src = 'mac-guessr/theater1.png';
-    // img3.style.height = "600px";
-    // document.getElementById('body').appendChild(img3);
 
     // randomly generate an image from a list to show up on the screen
     // const img_src = ['mac-guessr/theater1.jpg','']
-    // var img2 = document.createElement('img2');
+    // var img2 = document.createElement('img');
     // img_choose.src = img_src[randNumber(img_src.length)]
-    // img2.src = randImage;
     // img2.style.height = "600px";
     // document.getElementById('body').appendChild(img2);
-    // down.innerHTML = " ";
     ///////////////
 
     document.getElementById("Button").disabled=true;
     document.getElementById("MCG_UP").hidden=true;
-    // down.innerHTML = "Select which building you think the image was taken in!";
+    down.innerHTML = "Select which building you think the image was taken in!";
 } 
 
 function Game_Rules(x) {

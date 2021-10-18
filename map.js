@@ -4,8 +4,8 @@ var down = document.getElementById('MCG_DOWN');
 
 // Map of images to randomly generate 
 const map = new Map();
-map.set(0, "mac-guessr/carnegie1.jpg"); //Carnegie Hall
-map.set(1, "mac-guessr/theater1.jpg"); //Theater and Dance Building
+map.set(0, "mac-guessr/carnegie1.jpg", "carnegie"); //Carnegie Hall
+map.set(1, "mac-guessr/theater1.jpg", "theater"); //Theater and Dance Building
 map.set(2, 'Joan Adams Mondale Hall of Studio Art');
 map.set(3, 'Humanities Building');
 map.set(4,'Olin-Rice Science Center');
@@ -18,6 +18,8 @@ map.set(10,'Weyerhaeuser Memorial Chapel');
 map.set(11, 'Markim Hall');
 map.set(12, 'Kagin Commons');
 
+let mapImage;
+let buildingName = "";
 // Begin game function: adds map and random image to body of document
 function MCG_Pic() {
 
@@ -26,7 +28,7 @@ function MCG_Pic() {
     let randImage = map.get(randNum);
     // down.innerHTML = randImage; // This was to check that the string was functioning correctly
 
-    let mapImage = document.createElement('img');
+    mapImage = document.createElement('img');
     mapImage.src = 'mac-guessr/mcgpicupdate.png';
     mapImage.style.height = "600px";
     document.getElementById('body').appendChild(mapImage);
@@ -63,19 +65,22 @@ function returnGuessObject(x, y) {
 
 
 function getClickPosition(event) {
-    var x = event.clientX;
-    var y = event.clientY;
-    console.log("x", x, "y", y, event);
+    // if (!event.target.matches(buildingName)) return;
+	console.log(event.target);
+    
+    // var x = event.clientX;
+    // var y = event.clientY;
+    // console.log("x", x, "y", y, event);
 
-    let guessMatch = false;
-    let guess = returnGuessObject(x,y);
-    let correct = map.get('mac-guessr/theater1.jpg');
-    function ifguessMatch(guess, correct){
-        if (guess === correct) {
-            guessMatch = True;
-        }
-        guessMatch = False;
-    }
+    // let guessMatch = false;
+    // let guess = returnGuessObject(x,y);
+    // let correct = map.get('mac-guessr/theater1.jpg');
+    // function ifguessMatch(guess, correct){
+    //     if (guess === correct) {
+    //         guessMatch = True;
+    //     }
+    //     guessMatch = False;
+    // }
         
         
     let lives = 3;

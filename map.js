@@ -29,7 +29,7 @@ function MCG_Pic() {
     // down.innerHTML = randImage; // This was to check that the string was functioning correctly
 
     mapImage = document.createElement('img');
-    mapImage.src = 'mac-guessr/mcgpicupdate.png';
+    mapImage.src = 'mac-guessr/mcgpicnew.svg';
     mapImage.style.height = "600px";
     document.getElementById('body').appendChild(mapImage);
     mapImage.addEventListener("click", getClickPosition);
@@ -65,11 +65,12 @@ function returnGuessObject(x, y) {
 
 
 function getClickPosition(event) {
+    var x = event.clientX;
+    var y = event.clientY;
     // if (!event.target.matches(buildingName)) return;
-	console.log(event.target);
+	console.log(mapImage.elementFromPoint(x, y));
     
-    // var x = event.clientX;
-    // var y = event.clientY;
+    
     // console.log("x", x, "y", y, event);
 
     // let guessMatch = false;

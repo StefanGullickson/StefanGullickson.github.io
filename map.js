@@ -112,3 +112,17 @@ function randNumber(max) {
     return Math.round((Math.random()*max));
 }
 
+function Game_Rules() {
+    let item = document.getElementById("How_To");
+    item.style.color = "blue";
+    item.style.fontSize = "50px";
+}
+
+function mouseOut() {
+    let item = document.getElementById("How_To");
+    item.style.color = "lightgray";
+    item.style.fontSize = "20px";
+}
+
+  
+

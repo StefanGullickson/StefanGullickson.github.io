@@ -30,11 +30,6 @@ body {
     color: rgb(194, 194, 194);
 }
 
-#How_To: hover {
-    background-color = gray;
-}
-
-
 button {
     border: none;
     padding: 15px 30px;

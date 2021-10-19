@@ -28,11 +28,20 @@ function MCG_Pic() {
     let randImage = map.get(randNum);
     // down.innerHTML = randImage; // This was to check that the string was functioning correctly
 
-    mapImage = document.createElement('img');
-    mapImage.src = 'mac-guessr/mcgpicnew.svg';
+    mapImage = document.createElement('object');
+    mapImage.data = 'mac-guessr/mcgpicnew.svg';
+    mapImage.type = "image/svg+xml";
     mapImage.style.height = "600px";
     document.getElementById('body').appendChild(mapImage);
-    mapImage.addEventListener("click", getClickPosition);
+    mapImage.addEventListener("load", () => {
+        mapImage.contentDocument
+            .querySelectorAll("#buildings > *")
+            .forEach((building) => {
+                building.addEventListener("click", () => {
+                    console.log(building.id);
+                });
+            });
+    });
 
     // Uses the random image name to add a random image from the image map
     var img2 = document.createElement('img');

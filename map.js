@@ -115,7 +115,7 @@ function randNumber(max) {
 function Game_Rules() {
     let item = document.getElementById("How_To");
     item.style.color = "lightgray";
-    item.style.fontSize = "23px";
+    item.style.fontSize = "21px";
 }
 
 function mouseOut() {

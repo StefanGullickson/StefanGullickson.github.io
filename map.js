@@ -2,10 +2,10 @@ var up = document.getElementById('MCG_UP');
 up.innerHTML = "Click button to start"; 
 var down = document.getElementById('MCG_DOWN'); 
 
-// Map of images to randomly generate 
+// Map of images to randomly select from
 const map = new Map();
-map.set(0, "mac-guessr/carnegie1.jpg", "carnegie"); //Carnegie Hall
-map.set(1, "mac-guessr/theater1.jpg", "theater"); //Theater and Dance Building
+map.set(0, "mac-guessr/carnegie1.jpg"); //Carnegie Hall
+map.set(1, "mac-guessr/theater1.jpg"); //Theater and Dance Building
 map.set(2, 'Joan Adams Mondale Hall of Studio Art');
 map.set(3, 'Humanities Building');
 map.set(4,'Olin-Rice Science Center');
@@ -18,17 +18,12 @@ map.set(10,'Weyerhaeuser Memorial Chapel');
 map.set(11, 'Markim Hall');
 map.set(12, 'Kagin Commons');
 
-let mapImage;
-let buildingName = "";
+
 // Begin game function: adds map and random image to body of document
 function MCG_Pic() {
 
-    // Creates a string object of a random image name from the image map
-    let randNum = randNumber(1);
-    let randImage = map.get(randNum);
-    // down.innerHTML = randImage; // This was to check that the string was functioning correctly
-
-    mapImage = document.createElement('object');
+    // adds the visual map to the document, and function for clicking on buildings
+    let mapImage = document.createElement('object');
     mapImage.data = 'mac-guessr/mcgpicnew.svg';
     mapImage.type = "image/svg+xml";
     mapImage.style.height = "600px";
@@ -39,25 +34,21 @@ function MCG_Pic() {
             .forEach((building) => {
                 building.addEventListener("click", () => {
                     console.log(building.id);
+
                 });
             });
     });
 
-    // Uses the random image name to add a random image from the image map
-    var img2 = document.createElement('img');
-    img2.src = randImage;
-    img2.style.height = "600px";
-    document.getElementById('body').appendChild(img2);
 
+    // Gets a random image from the map and adds it to the document
+    let randNum = randNumber(1);
+    let randImage = map.get(randNum);
+    var img = document.createElement('img');
+    img.src = randImage;
+    img.style.height = "600px";
+    document.getElementById('body').appendChild(img);
 
-    // randomly generate an image from a list to show up on the screen
-    // const img_src = ['mac-guessr/theater1.jpg','']
-    // var img2 = document.createElement('img');
-    // img_choose.src = img_src[randNumber(img_src.length)]
-    // img2.style.height = "600px";
-    // document.getElementById('body').appendChild(img2);
-    ///////////////
-
+    
     document.getElementById("Button").disabled=true;
     document.getElementById("MCG_UP").hidden=true;
     down.innerHTML = "Select which building you think the image was taken in!";

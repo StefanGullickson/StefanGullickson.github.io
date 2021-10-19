@@ -18,6 +18,10 @@ map.set(10,'Weyerhaeuser Memorial Chapel');
 map.set(11, 'Markim Hall');
 map.set(12, 'Kagin Commons');
 
+let imageArray = new Array();
+imageArray.push("mac-guessr/carnegie1.jpg");
+imageArray.push("mac-guessr/theater1.jpg");
+
 
 // Begin game function: adds map and random image to body of document
 function MCG_Pic() {
@@ -34,15 +38,17 @@ function MCG_Pic() {
             .forEach((building) => {
                 building.addEventListener("click", () => {
                     console.log(building.id);
+                    // if (!building.id.matches()) {
 
+                    // }
                 });
             });
     });
 
 
     // Gets a random image from the map and adds it to the document
-    let randNum = randNumber(1);
-    let randImage = map.get(randNum);
+    let randNum = randNumber(imageArray.length);
+    let randImage = imageArray.get(randNum);
     var img = document.createElement('img');
     img.src = randImage;
     img.style.height = "600px";

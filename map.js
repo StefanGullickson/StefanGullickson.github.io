@@ -12,14 +12,17 @@ map.set(4,'Olin-Rice Science Center'); //Olin-Rice Science Center
 map.set(5, 'Leonard Center athletics and wellness complex'); //Leonard Center
 map.set(6, 'Janet Wallace Fine Arts Center'); //Janet Wallace Fine Arts Center
 map.set(7, 'Old Main'); //Old Main
-map.set(8, 'DeWitt Wallace Library'); //DeWitt Wallace Library
-map.set(9, 'Ruth Stricker Dayton Campus Center'); //Ruth Stricker
-map.set(10,'Weyerhaeuser Memorial Chapel'); //Weyerhaeuser Memorial Chapel
-map.set(11, 'Markim Hall'); //Markim Hall
-map.set(12, 'Kagin Commons'); //Kagin Commons
-map.set(13, 'Weyerhaeuser Hall'); //Weyerhaeuser Hall
-map.set(14, '77 Mac'); //77 Mac
-map.set(15, 'Kirk Hall'); //Kirk Hall
+map.set(8, 'mac-guessr/lib1.jpg'); //DeWitt Wallace Library
+map.set(9, 'mac-guessr/lib2.jpg'); //DeWitt Wallace Library
+map.set(10, 'mac-guessr/lib3.jpg'); //DeWitt Wallace Library
+map.set(11, 'mac-guessr/lib4.jpg'); //DeWitt Wallace Library
+map.set(12, 'Ruth Stricker Dayton Campus Center'); //Ruth Stricker
+map.set(13,'Weyerhaeuser Memorial Chapel'); //Weyerhaeuser Memorial Chapel
+map.set(14, 'Markim Hall'); //Markim Hall
+map.set(15, 'Kagin Commons'); //Kagin Commons
+map.set(16, 'Weyerhaeuser Hall'); //Weyerhaeuser Hall
+map.set(17, '77 Mac'); //77 Mac
+map.set(18, 'Kirk Hall'); //Kirk Hall
 
 // Begin game function: adds map and random image to body of document
 function MCG_Pic() {

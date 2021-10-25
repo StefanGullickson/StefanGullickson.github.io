@@ -6,17 +6,20 @@ var down = document.getElementById('MCG_DOWN');
 const map = new Map();
 map.set(0, "mac-guessr/carnegie1.jpg"); //Carnegie Hall
 map.set(1, "mac-guessr/theater1.jpg"); //Theater and Dance Building
-map.set(2, 'Joan Adams Mondale Hall of Studio Art');
-map.set(3, 'Humanities Building');
-map.set(4,'Olin-Rice Science Center');
-map.set(5, 'Leonard Center athletics and wellness complex');
-map.set(6, 'Janet Wallace Fine Arts Center');
-map.set(7, 'Old Main');
-map.set(8, 'DeWitt Wallace Library');
-map.set(9, 'Ruth Stricker Dayton Campus Center');
-map.set(10,'Weyerhaeuser Memorial Chapel');
-map.set(11, 'Markim Hall');
-map.set(12, 'Kagin Commons');
+map.set(2, 'Joan Adams Mondale Hall of Studio Art'); //Joan Adams Mondale Hall of Studio Art
+map.set(3, 'Humanities Building'); //Humanities Building
+map.set(4,'Olin-Rice Science Center'); //Olin-Rice Science Center
+map.set(5, 'Leonard Center athletics and wellness complex'); //Leonard Center
+map.set(6, 'Janet Wallace Fine Arts Center'); //Janet Wallace Fine Arts Center
+map.set(7, 'Old Main'); //Old Main
+map.set(8, 'DeWitt Wallace Library'); //DeWitt Wallace Library
+map.set(9, 'Ruth Stricker Dayton Campus Center'); //Ruth Stricker
+map.set(10,'Weyerhaeuser Memorial Chapel'); //Weyerhaeuser Memorial Chapel
+map.set(11, 'Markim Hall'); //Markim Hall
+map.set(12, 'Kagin Commons'); //Kagin Commons
+map.set(13, 'Weyerhaeuser Hall'); //Weyerhaeuser Hall
+map.set(14, '77 Mac'); //77 Mac
+map.set(15, 'Kirk Hall'); //Kirk Hall
 
 // Begin game function: adds map and random image to body of document
 function MCG_Pic() {

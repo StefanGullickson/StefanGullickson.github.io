@@ -60,7 +60,7 @@ function MCG_Pic() {
 
 
     // Gets a random image from the map and adds it to the document
-    let randNum = randNumber(8);
+    let randNum = randNumber(15);
     let randImage = map.get(randNum);
     var img = document.createElement('img');
     img.src = randImage;

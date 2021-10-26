@@ -4,12 +4,24 @@ var down = document.getElementById('MCG_DOWN');
 
 // Map of images to randomly select from
 const map = new Map();
-map.set(0, "mac-guessr/carnegie1.jpg"); //Carnegie Hall
-map.set(1, "mac-guessr/theater1.jpg"); //Theater and Dance Building
-map.set(2, 'mac-guessr/lib1.jpg'); //DeWitt Wallace Library
-map.set(3, 'mac-guessr/lib2.jpg'); //DeWitt Wallace Library
-map.set(4, 'mac-guessr/lib3.jpg'); //DeWitt Wallace Library
-map.set(5, 'mac-guessr/lib4.jpg'); //DeWitt Wallace Library
+map.set(0, "mac-guessr/theater1.jpg"); //Theater and Dance Building
+map.set(1, "mac-guessr/theater2.jpg"); //Theater and Dance Building
+map.set(2, "mac-guessr/theater3.jpg"); //Theater and Dance Building
+map.set(3, "mac-guessr/theater4.jpg"); //Theater and Dance Building
+map.set(4, 'mac-guessr/lib1.jpg'); //DeWitt Wallace Library
+map.set(5, 'mac-guessr/lib2.jpg'); //DeWitt Wallace Library
+map.set(6, 'mac-guessr/lib3.jpg'); //DeWitt Wallace Library
+map.set(7, 'mac-guessr/lib4.jpg'); //DeWitt Wallace Library
+map.set(8, 'mac-guessr/art1.jpg'); //Joan Adams Mondale Hall of Studio Art
+map.set(9, 'mac-guessr/art2.jpg'); //Joan Adams Mondale Hall of Studio Art
+map.set(10, 'mac-guessr/art3.jpg'); //Joan Adams Mondale Hall of Studio Art
+map.set(11, 'mac-guessr/jwall1.jpg'); //Janet Wallace Fine Arts Center
+map.set(12, 'mac-guessr/jwall2.jpg'); //Janet Wallace Fine Arts Center
+map.set(13, 'mac-guessr/jwall3.jpg'); //Janet Wallace Fine Arts Center
+map.set(14, 'mac-guessr/jwall4.jpg'); //Janet Wallace Fine Arts Center
+map.set(15, "mac-guessr/carnegie1.jpg"); //Carnegie Hall
+
+
 // map.set(2, 'Joan Adams Mondale Hall of Studio Art'); //Joan Adams Mondale Hall of Studio Art
 // map.set(3, 'Humanities Building'); //Humanities Building
 // map.set(4,'Olin-Rice Science Center'); //Olin-Rice Science Center
@@ -48,7 +60,7 @@ function MCG_Pic() {
 
 
     // Gets a random image from the map and adds it to the document
-    let randNum = randNumber(5);
+    let randNum = randNumber(8);
     let randImage = map.get(randNum);
     var img = document.createElement('img');
     img.src = randImage;

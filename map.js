@@ -39,10 +39,14 @@ map.set(15, "mac-guessr/carnegie1.jpg"); //Carnegie Hall
 // Begin game function: adds map and random image to body of document
 function MCG_Pic() {
 
+
+    let lives = 3;
+
     // adds the visual map to the document, and function for clicking on buildings
     let mapImage = document.createElement('object');
     mapImage.data = 'mac-guessr/mcgpicnew.svg';
     mapImage.type = "image/svg+xml";
+    mapImage.id = "mapImage";
     mapImage.style.height = "600px";
     document.getElementById('body').appendChild(mapImage);
     
@@ -51,6 +55,7 @@ function MCG_Pic() {
     let randImage = map.get(randNum);
     var img = document.createElement('img');
     img.src = randImage;
+    img.id = "randImage";
     img.style.height = "600px";
     document.getElementById('body').appendChild(img);
     let buildingName = grabImageLocation(randImage);
@@ -63,8 +68,20 @@ function MCG_Pic() {
                     console.log(building.id);
                     if (building.id === buildingName) {
                         console.log("that's correct!");
+                        down.innerHTML = "That is correct!";
+                        buttonReset();
                     } else {
+                        lives -= 1;
                         console.log("that's incorrect.");
+                        if (lives === 1) {
+                            down.innerHTML = "That is incorrect. You have " + lives + " guess remaining.";
+                        } else if  (lives === 0){
+                            down.innerHTML = "That is incorrect. You lost! The correct building was " + buildingName + ".";
+                            buttonReset();
+                        } else {
+                            down.innerHTML = "That is incorrect. You have " + lives + " guesses remaining.";
+                        }
+                        
                     }
                 });
             });
@@ -82,48 +99,6 @@ function MCG_Pic() {
 function Game_Rules(x) {
     x.style.height = "50px";
 }
-
-
-function returnGuessObject(x, y) {
-    return document.elementFromPoint(x, y);
-}
-
-
-function getClickPosition(event) {
-    var x = event.clientX;
-    var y = event.clientY;
-    // if (!event.target.matches(buildingName)) return;
-	console.log(mapImage.elementFromPoint(x, y));
-    
-    
-    // console.log("x", x, "y", y, event);
-
-    // let guessMatch = false;
-    // let guess = returnGuessObject(x,y);
-    // let correct = map.get('mac-guessr/theater1.jpg');
-    // function ifguessMatch(guess, correct){
-    //     if (guess === correct) {
-    //         guessMatch = True;
-    //     }
-    //     guessMatch = False;
-    // }
-        
-        
-    let lives = 3;
-    function countLives(){
-        while (lives >0) {
-            if (!guessMatch){
-                lives -=1;
-            }
-        }
-        return "Game Over!"
-    }
-    // return {
-    //     x: xPosition,
-    //     y: yPosition
-    // };
-}
-
 
 var head = document.getElementsByTagName('HEAD')[0]; 
 var link = document.createElement('link');
@@ -167,6 +142,30 @@ function grabImageLocation(url) {
     }
     console.log(building);
     return building;
+}
+
+function buttonReset() {
+    document.querySelector('#Button').textContent = 'Reset Game';    
+    document.querySelector('#Button').disabled = false;
+    document.querySelector('#Button').onclick = 
+    function() {
+        console.log('reseting');
+        // document.removeChild(document.getElementById('body').getAttributeNode('randImage'));
+        console.log(document);
+        console.log(document.getElementById('randImage'));
+        //let ob=document.getElementById('randImage');
+        //let ob2=document.getElementById('mapImage');
+        document.body.removeChild(document.getElementById('randImage'));
+        document.body.removeChild(document.getElementById('mapImage'));
+        //document.removeChild(document.getElementById('mapImage'));
+        // document.getElementbyId('body').removeChild(document.getElementById('randImage'));
+        // console.log(document.getElementById('mapImage'));
+        // console.log(document.getElementById('randImage'));
+        // while (document.firstChild) {
+        //     document.removeChild(document.firstChild);
+        // }
+        MCG_Pic();
+    }; 
 }
   
 

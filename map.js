@@ -8,10 +8,10 @@ map.set(0, "mac-guessr/theater1.jpg"); //Theater and Dance Building
 map.set(1, "mac-guessr/theater2.jpg"); //Theater and Dance Building
 map.set(2, "mac-guessr/theater3.jpg"); //Theater and Dance Building
 map.set(3, "mac-guessr/theater4.jpg"); //Theater and Dance Building
-map.set(4, 'mac-guessr/lib1.jpg'); //DeWitt Wallace Library
-map.set(5, 'mac-guessr/lib2.jpg'); //DeWitt Wallace Library
-map.set(6, 'mac-guessr/lib3.jpg'); //DeWitt Wallace Library
-map.set(7, 'mac-guessr/lib4.jpg'); //DeWitt Wallace Library
+map.set(4, 'mac-guessr/library1.jpg'); //DeWitt Wallace Library
+map.set(5, 'mac-guessr/library2.jpg'); //DeWitt Wallace Library
+map.set(6, 'mac-guessr/library3.jpg'); //DeWitt Wallace Library
+map.set(7, 'mac-guessr/library4.jpg'); //DeWitt Wallace Library
 map.set(8, 'mac-guessr/art1.jpg'); //Joan Adams Mondale Hall of Studio Art
 map.set(9, 'mac-guessr/art2.jpg'); //Joan Adams Mondale Hall of Studio Art
 map.set(10, 'mac-guessr/art3.jpg'); //Joan Adams Mondale Hall of Studio Art
@@ -45,20 +45,7 @@ function MCG_Pic() {
     mapImage.type = "image/svg+xml";
     mapImage.style.height = "600px";
     document.getElementById('body').appendChild(mapImage);
-    mapImage.addEventListener("load", () => {
-        mapImage.contentDocument
-            .querySelectorAll("#buildings > *")
-            .forEach((building) => {
-                building.addEventListener("click", () => {
-                    console.log(building.id);
-                    // if (!building.id.matches()) {
-
-                    // }
-                });
-            });
-    });
-
-
+    
     // Gets a random image from the map and adds it to the document
     let randNum = randNumber(15);
     let randImage = map.get(randNum);
@@ -66,6 +53,25 @@ function MCG_Pic() {
     img.src = randImage;
     img.style.height = "600px";
     document.getElementById('body').appendChild(img);
+    let buildingName = grabImageLocation(randImage);
+    
+    mapImage.addEventListener("load", () => {
+        mapImage.contentDocument
+            .querySelectorAll("#buildings > *")
+            .forEach((building) => {
+                building.addEventListener("click", () => {
+                    console.log(building.id);
+                    if (building.id === buildingName) {
+                        console.log("that's correct!");
+                    } else {
+                        console.log("that's incorrect.");
+                    }
+                });
+            });
+    });
+
+
+
 
     
     document.getElementById("Button").disabled=true;
@@ -143,5 +149,24 @@ function mouseOut() {
     item.style.fontSize = "20px";
 }
 
+function grabImageLocation(url) {
+    let numbers = "0123456789";
+    let building = "";
+
+    for (let i = 0; i < url.length; i++) {
+        if (url[i] === "/") {
+            for (let j = i+1; j < url.length; j++) {
+                if (!numbers.includes(url[j])) {
+                    building += url[j];
+                } else {
+                    break;
+                }    
+            }
+            break;
+        }
+    }
+    console.log(building);
+    return building;
+}
   
 

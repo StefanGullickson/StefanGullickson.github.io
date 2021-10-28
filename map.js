@@ -1,6 +1,7 @@
 var up = document.getElementById('MCG_UP'); 
 up.innerHTML = "Click button to start"; 
 var down = document.getElementById('MCG_DOWN'); 
+var bottom = document.getElementById('Bottom_Text');
 
 // Map of images to randomly select from
 const map = new Map();
@@ -21,6 +22,25 @@ map.set(13, 'mac-guessr/jwall3.jpg'); //Janet Wallace Fine Arts Center
 map.set(14, 'mac-guessr/jwall4.jpg'); //Janet Wallace Fine Arts Center
 map.set(15, "mac-guessr/carnegie1.jpg"); //Carnegie Hall
 
+const fullNameMap = new Map();
+fullNameMap.set('theater', 'Theater and Dance Building');
+fullNameMap.set('library', 'DeWitt Wallace Library');
+fullNameMap.set('art', 'Joan Adams Mondale Hall of Studio Art');
+fullNameMap.set('jwall', 'Janet Wallace Fine Arts Center');
+fullNameMap.set('carnegie', 'Carnegie Hall');
+fullNameMap.set('humanities', 'Humanities Building');
+fullNameMap.set('olin', 'Olin-Rice Science Center');
+fullNameMap.set('leonard', 'Leonard Center Atheletics and Wellness Complex');
+fullNameMap.set('oldmain', 'Old Main');
+fullNameMap.set('cc', 'Ruth Stricker Dayton Campus Center');
+fullNameMap.set('chapel', 'Weyerhaeuser Memorial Chapel');
+fullNameMap.set('markim', 'Markim Hall');
+fullNameMap.set('kagin', 'Kagin Commons');
+fullNameMap.set('weyerhaeuser', 'Weyerhaeuser Hall');
+fullNameMap.set('_77mac', '77 Mac');
+fullNameMap.set('stadium', 'Macalester Stadium');
+fullNameMap.set('kirk', 'Kirk Hall');
+
 
 // map.set(2, 'Joan Adams Mondale Hall of Studio Art'); //Joan Adams Mondale Hall of Studio Art
 // map.set(3, 'Humanities Building'); //Humanities Building
@@ -39,8 +59,8 @@ map.set(15, "mac-guessr/carnegie1.jpg"); //Carnegie Hall
 // Begin game function: adds map and random image to body of document
 function MCG_Pic() {
 
-
     let lives = 3;
+    up.innerHTML = "Guesses Remaining: " + lives;
 
     // adds the visual map to the document, and function for clicking on buildings
     let mapImage = document.createElement('object');
@@ -66,20 +86,27 @@ function MCG_Pic() {
             .forEach((building) => {
                 building.addEventListener("click", () => {
                     console.log(building.id);
+
                     if (building.id === buildingName) {
-                        console.log("that's correct!");
-                        down.innerHTML = "That is correct!";
+                        up.innerHTML = "";
+                        down.innerHTML = "Congratulations! That is correct!";
                         buttonReset();
+
                     } else {
+
                         lives -= 1;
-                        console.log("that's incorrect.");
+
                         if (lives === 1) {
                             down.innerHTML = "That is incorrect. You have " + lives + " guess remaining.";
+                            up.innerHTML = "Guesses Remaining: " + lives;
                         } else if  (lives === 0){
-                            down.innerHTML = "That is incorrect. You lost! The correct building was " + buildingName + ".";
+                            down.innerHTML = "That is incorrect. You lost! The correct building was " + fullNameMap.get(buildingName) + ".";
+                            up.innerHTML = "Guesses Remaining: " + lives;
                             buttonReset();
+
                         } else {
                             down.innerHTML = "That is incorrect. You have " + lives + " guesses remaining.";
+                            up.innerHTML = "Guesses Remaining: " + lives;
                         }
                         
                     }
@@ -87,12 +114,7 @@ function MCG_Pic() {
             });
     });
 
-
-
-
-    
     document.getElementById("Button").disabled=true;
-    document.getElementById("MCG_UP").hidden=true;
     down.innerHTML = "Select which building you think the image was taken in!";
 } 
 
@@ -145,25 +167,14 @@ function grabImageLocation(url) {
 }
 
 function buttonReset() {
-    document.querySelector('#Button').textContent = 'Reset Game';    
+    document.body.removeChild(document.getElementById('mapImage'));
+    document.querySelector('#Button').textContent = 'Reset Game';   
     document.querySelector('#Button').disabled = false;
     document.querySelector('#Button').onclick = 
     function() {
         console.log('reseting');
-        // document.removeChild(document.getElementById('body').getAttributeNode('randImage'));
         console.log(document);
-        console.log(document.getElementById('randImage'));
-        //let ob=document.getElementById('randImage');
-        //let ob2=document.getElementById('mapImage');
         document.body.removeChild(document.getElementById('randImage'));
-        document.body.removeChild(document.getElementById('mapImage'));
-        //document.removeChild(document.getElementById('mapImage'));
-        // document.getElementbyId('body').removeChild(document.getElementById('randImage'));
-        // console.log(document.getElementById('mapImage'));
-        // console.log(document.getElementById('randImage'));
-        // while (document.firstChild) {
-        //     document.removeChild(document.firstChild);
-        // }
         MCG_Pic();
     }; 
 }

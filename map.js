@@ -3,7 +3,16 @@ up.innerHTML = "Click button to start";
 var down = document.getElementById('MCG_DOWN'); 
 var bottom = document.getElementById('Bottom_Text');
 
-// Map of images to randomly select from
+var head = document.getElementsByTagName('HEAD')[0]; 
+var link = document.createElement('link');
+link.rel = 'stylesheet'; 
+link.type = 'text/css';
+link.href = 'layout.css'; 
+document.body.appendChild(link);
+
+/* Map of images to randomly select from; each image file name minus the photo number 
+* matches its corresponding svg object ID
+*/
 const map = new Map();
 map.set(0, "mac-guessr/theater1.jpg"); //Theater and Dance Building
 map.set(1, "mac-guessr/theater2.jpg"); //Theater and Dance Building
@@ -23,17 +32,17 @@ map.set(14, 'mac-guessr/jwall4.jpg'); //Janet Wallace Fine Arts Center
 map.set(15, "mac-guessr/carnegie1.jpg"); //Carnegie Hall
 
 const fullNameMap = new Map();
-fullNameMap.set('theater', 'Theater and Dance Building');
+fullNameMap.set('theater', 'The Theater and Dance Building');
 fullNameMap.set('library', 'DeWitt Wallace Library');
 fullNameMap.set('art', 'Joan Adams Mondale Hall of Studio Art');
 fullNameMap.set('jwall', 'Janet Wallace Fine Arts Center');
 fullNameMap.set('carnegie', 'Carnegie Hall');
-fullNameMap.set('humanities', 'Humanities Building');
+fullNameMap.set('humanities', 'The Humanities Building');
 fullNameMap.set('olin', 'Olin-Rice Science Center');
-fullNameMap.set('leonard', 'Leonard Center Atheletics and Wellness Complex');
+fullNameMap.set('leonard', 'The Leonard Center Athletics and Wellness Complex');
 fullNameMap.set('oldmain', 'Old Main');
 fullNameMap.set('cc', 'Ruth Stricker Dayton Campus Center');
-fullNameMap.set('chapel', 'Weyerhaeuser Memorial Chapel');
+fullNameMap.set('chapel', 'The Weyerhaeuser Memorial Chapel');
 fullNameMap.set('markim', 'Markim Hall');
 fullNameMap.set('kagin', 'Kagin Commons');
 fullNameMap.set('weyerhaeuser', 'Weyerhaeuser Hall');
@@ -41,43 +50,25 @@ fullNameMap.set('_77mac', '77 Mac');
 fullNameMap.set('stadium', 'Macalester Stadium');
 fullNameMap.set('kirk', 'Kirk Hall');
 
-
-// map.set(2, 'Joan Adams Mondale Hall of Studio Art'); //Joan Adams Mondale Hall of Studio Art
-// map.set(3, 'Humanities Building'); //Humanities Building
-// map.set(4,'Olin-Rice Science Center'); //Olin-Rice Science Center
-// map.set(5, 'Leonard Center athletics and wellness complex'); //Leonard Center
-// map.set(6, 'Janet Wallace Fine Arts Center'); //Janet Wallace Fine Arts Center
-// map.set(7, 'Old Main'); //Old Main
-// map.set(12, 'Ruth Stricker Dayton Campus Center'); //Ruth Stricker
-// map.set(13,'Weyerhaeuser Memorial Chapel'); //Weyerhaeuser Memorial Chapel
-// map.set(14, 'Markim Hall'); //Markim Hall
-// map.set(15, 'Kagin Commons'); //Kagin Commons
-// map.set(16, 'Weyerhaeuser Hall'); //Weyerhaeuser Hall
-// map.set(17, '77 Mac'); //77 Mac
-// map.set(18, 'Kirk Hall'); //Kirk Hall
+let correctlyGuessedImages = [];
 
 // Begin game function: adds map and random image to body of document
 function MCG_Pic() {
 
-    let lives = 3;
-    up.innerHTML = "Guesses Remaining: " + lives;
+    correctlyGuessedImages = [];
+    let lives = 5;
+    up.innerHTML = "Lives Remaining: " + lives;
 
     // adds the visual map to the document, and function for clicking on buildings
     let mapImage = document.createElement('object');
     mapImage.data = 'mac-guessr/mcgpicnew.svg';
     mapImage.type = "image/svg+xml";
     mapImage.id = "mapImage";
-    mapImage.style.height = "600px";
+    mapImage.style.height = "450px";
     document.getElementById('body').appendChild(mapImage);
     
     // Gets a random image from the map and adds it to the document
-    let randNum = randNumber(15);
-    let randImage = map.get(randNum);
-    var img = document.createElement('img');
-    img.src = randImage;
-    img.id = "randImage";
-    img.style.height = "600px";
-    document.getElementById('body').appendChild(img);
+    let randImage = getRandomImage();
     let buildingName = grabImageLocation(randImage);
     
     mapImage.addEventListener("load", () => {
@@ -88,42 +79,64 @@ function MCG_Pic() {
                     console.log(building.id);
 
                     if (building.id === buildingName) {
-                        up.innerHTML = "";
-                        down.innerHTML = "Congratulations! That is correct!";
-                        buttonReset();
+                        
+                        down.innerHTML = "Congratulations! That is correct! This image was taken in " + fullNameMap.get(buildingName) + ".";
+                        document.getElementById("countdown").hidden = false;
+                        correctlyGuessedImages.push(randImage);
+                        document.body.removeChild(document.getElementById('mapImage'));
                         var timeleft = 5;
                         var downloadTimer = setInterval(function(){
-                        if(timeleft <= 0){
-                            clearInterval(downloadTimer);
-                            document.getElementById("countdown").innerHTML = "Finished";
-                        } else {
-                            document.getElementById("countdown").innerHTML = timeleft + " seconds before next round";
-                        }
-                        timeleft -= 1;
+
+                            if(timeleft <= 0){
+                                clearInterval(downloadTimer);
+                                document.getElementById('body').appendChild(mapImage);
+                                document.getElementById("countdown").hidden = true;
+                                document.body.removeChild(document.getElementById('randImage'));
+                                randImage = getRandomImage();
+                                buildingName = grabImageLocation(randImage);
+                                down.innerHTML = "Select which building you think the image was taken in!";
+
+                            } else {
+                                document.getElementById("countdown").innerHTML = timeleft + " seconds before next round";
+                            }
+                            timeleft -= 1;
                         }, 1000);
                     } else {
 
                         lives -= 1;
 
                         if (lives === 1) {
-                            down.innerHTML = "That is incorrect. You have " + lives + " guess remaining.";
-                            up.innerHTML = "Guesses Remaining: " + lives;
+                            down.innerHTML = "That is incorrect. You have " + lives + " life remaining.";
+                            up.innerHTML = "Lives Remaining: " + lives;
                         } else if  (lives === 0){
                             down.innerHTML = "That is incorrect. You lost! The correct building was " + fullNameMap.get(buildingName) + ".";
-                            up.innerHTML = "Guesses Remaining: " + lives;
-                            buttonReset();
-
+                            up.innerHTML = "Final Score: " + correctlyGuessedImages.length;
+                            newGame();
                         } else {
-                            down.innerHTML = "That is incorrect. You have " + lives + " guesses remaining.";
-                            up.innerHTML = "Guesses Remaining: " + lives;
+                            down.innerHTML = "That is incorrect. You have " + lives + " lives remaining.";
+                            up.innerHTML = "Lives Remaining: " + lives;
                         }
                         
                     }
                 });
+
+                // These two event listeners allow for users to hover over buildings and get information about them.
+                building.addEventListener("mouseenter", () => {
+                    down.innerHTML = "This is " + fullNameMap.get(building.id) + ".";
+                });
+                building.addEventListener("mouseleave", () => {
+                    down.innerHTML = "Select which building you think the image was taken in!";
+                });
             });
     });
 
-    document.getElementById("Button").disabled=true;
+    document.getElementById("Button").textContent = "Reset Game";
+    document.querySelector('#Button').onclick = 
+    function() {
+        document.body.removeChild(document.getElementById('mapImage'));
+        document.body.removeChild(document.getElementById('randImage'));
+        MCG_Pic();
+    }; 
     down.innerHTML = "Select which building you think the image was taken in!";
 } 
 
@@ -131,15 +144,7 @@ function Game_Rules(x) {
     x.style.height = "50px";
 }
 
-var head = document.getElementsByTagName('HEAD')[0]; 
-var link = document.createElement('link');
-link.rel = 'stylesheet'; 
-link.type = 'text/css';
-link.href = 'layout.css'; 
-document.body.appendChild(link);
-
-
-function randNumber(max) {
+function getRandomNumber(max) {
     return Math.round((Math.random()*max));
 }
 
@@ -175,17 +180,32 @@ function grabImageLocation(url) {
     return building;
 }
 
-function buttonReset() {
+function newGame() {
     document.body.removeChild(document.getElementById('mapImage'));
-    document.querySelector('#Button').textContent = 'Reset Game';   
+    document.querySelector('#Button').textContent = 'New Game';   
     document.querySelector('#Button').disabled = false;
     document.querySelector('#Button').onclick = 
     function() {
-        console.log('reseting');
-        console.log(document);
+        correctlyGuessedImages = [];
         document.body.removeChild(document.getElementById('randImage'));
         MCG_Pic();
     }; 
+}
+
+function getRandomImage() {
+    let randNum = getRandomNumber(15);
+    let randImage = map.get(randNum);
+    while (correctlyGuessedImages.includes(randImage)) {
+        randNum = getRandomNumber(15);
+        randImage = map.get(randNum);
+    }
+    var img = document.createElement('img');
+    img.src = randImage;
+    img.id = "randImage";
+    img.style.height = "450px";
+    document.getElementById('body').appendChild(img);
+
+    return randImage;
 }
   
 

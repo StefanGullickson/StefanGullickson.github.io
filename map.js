@@ -20,7 +20,11 @@ map.set(11, 'mac-guessr/jwall1.jpg'); //Janet Wallace Fine Arts Center
 map.set(12, 'mac-guessr/jwall2.jpg'); //Janet Wallace Fine Arts Center
 map.set(13, 'mac-guessr/jwall3.jpg'); //Janet Wallace Fine Arts Center
 map.set(14, 'mac-guessr/jwall4.jpg'); //Janet Wallace Fine Arts Center
-map.set(15, "mac-guessr/carnegie1.jpg"); //Carnegie Hall
+map.set(15, 'mac-guessr/leonard1.jpg'); //Leonard Center
+map.set(16, 'mac-guessr/leonard2.jpg'); //Leonard Center
+map.set(17, 'mac-guessr/leonard3.jpg'); //Leonard Center
+map.set(18, 'mac-guessr/leonard4.jpg'); //Leonard Center
+map.set(19, "mac-guessr/carnegie1.jpg"); //Carnegie Hall
 
 const fullNameMap = new Map();
 fullNameMap.set('theater', 'Theater and Dance Building');
@@ -71,7 +75,7 @@ function MCG_Pic() {
     document.getElementById('body').appendChild(mapImage);
     
     // Gets a random image from the map and adds it to the document
-    let randNum = randNumber(15);
+    let randNum = randNumber(19);
     let randImage = map.get(randNum);
     var img = document.createElement('img');
     img.src = randImage;

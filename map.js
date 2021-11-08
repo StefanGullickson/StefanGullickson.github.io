@@ -90,6 +90,7 @@ function MCG_Pic() {
             .forEach((building) => {
                 building.addEventListener("click", () => {
                     console.log(building.id);
+                    console.log(building.style); 
 
                     if (building.id === buildingName) {
                         up.innerHTML = "";

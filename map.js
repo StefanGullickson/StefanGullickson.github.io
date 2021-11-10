@@ -29,7 +29,11 @@ map.set(11, 'mac-guessr/jwall1.jpg'); //Janet Wallace Fine Arts Center
 map.set(12, 'mac-guessr/jwall2.jpg'); //Janet Wallace Fine Arts Center
 map.set(13, 'mac-guessr/jwall3.jpg'); //Janet Wallace Fine Arts Center
 map.set(14, 'mac-guessr/jwall4.jpg'); //Janet Wallace Fine Arts Center
-map.set(15, "mac-guessr/carnegie1.jpg"); //Carnegie Hall
+map.set(15, 'mac-guessr/leonard1.jpg'); //Leonard Center Athletics and Wellness Complex
+map.set(16, 'mac-guessr/leonard2.jpg'); //Leonard Center Athletics and Wellness Complex
+map.set(17, 'mac-guessr/leonard3.jpg'); //Leonard Center Athletics and Wellness Complex
+map.set(18, 'mac-guessr/leonard4.jpg'); //Leonard Center Athletics and Wellness Complex
+map.set(19, "mac-guessr/carnegie1.jpg"); //Carnegie Hall
 
 const fullNameMap = new Map();
 fullNameMap.set('theater', 'The Theater and Dance Building');

@@ -128,9 +128,12 @@ function MCG_Pic() {
                 // These two event listeners allow for users to hover over buildings and get information about them.
                 building.addEventListener("mouseenter", () => {
                     down.innerHTML = "This is " + fullNameMap.get(building.id) + ".";
+                    building.setAttribute("stroke", "black");
+                    building.setAttribute("stroke-width", "5");
                 });
                 building.addEventListener("mouseleave", () => {
                     down.innerHTML = "Select which building you think the image was taken in!";
+                    building.setAttribute("stroke", "none");
                 });
             });
     });

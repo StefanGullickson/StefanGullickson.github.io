@@ -142,8 +142,8 @@ function MCG_Pic() {
                             down.innerHTML = "That is incorrect. You have " + lives + " life remaining.";
                             up.innerHTML = "Lives Remaining: " + lives;
                         } else if  (lives === 0){
-                            down.innerHTML = "That is incorrect. You lost! The correct building was " + fullNameMap.get(buildingName) + ".";
-                            up.innerHTML = "Final Score: " + correctlyGuessedImages.length;
+                            down.innerHTML = "That is incorrect. Game over! The correct building was " + fullNameMap.get(buildingName) + ". Nice Job!";
+                            up.innerHTML = "Final Score: " + correctlyGuessedImages.length；
                             newGame();
                         } else {
                             down.innerHTML = "That is incorrect. You have " + lives + " lives remaining.";
@@ -243,4 +243,6 @@ function getRandomImage() {
 
     return randImage;
 }
+
+
   

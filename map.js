@@ -34,6 +34,34 @@ map.set(16, 'mac-guessr/leonard2.jpg'); //Leonard Center Athletics and Wellness 
 map.set(17, 'mac-guessr/leonard3.jpg'); //Leonard Center Athletics and Wellness Complex
 map.set(18, 'mac-guessr/leonard4.jpg'); //Leonard Center Athletics and Wellness Complex
 map.set(19, "mac-guessr/carnegie1.jpg"); //Carnegie Hall
+map.set(20, "mac-guessr/carnegie2.jpg"); //Carnegie Hall
+map.set(21, "mac-guessr/carnegie3.jpg"); //Carnegie Hall
+map.set(22, "mac-guessr/carnegie4.jpg"); //Carnegie Hall
+map.set(23, "mac-guessr/cc1.jpg"); //Ruth Stricker Dayton Campus Center
+map.set(24, "mac-guessr/cc2.jpg"); //Ruth Stricker Dayton Campus Center
+map.set(25, "mac-guessr/cc3.jpg"); //Ruth Stricker Dayton Campus Center
+map.set(26, "mac-guessr/cc4.jpg"); //Ruth Stricker Dayton Campus Center
+map.set(27, "mac-guessr/chapel1.jpg"); //The Weyerhaeuser Memorial Chapel
+map.set(28, "mac-guessr/chapel2.jpg"); //The Weyerhaeuser Memorial Chapel
+map.set(29, "mac-guessr/chapel3.jpg"); //The Weyerhaeuser Memorial Chapel
+map.set(30, "mac-guessr/chapel4.jpg"); //The Weyerhaeuser Memorial Chapel
+map.set(31, "mac-guessr/humanities1.jpg"); //The Humanities Building
+map.set(32, "mac-guessr/humanities2.jpg"); //The Humanities Building
+map.set(33, "mac-guessr/humanities3.jpg"); //The Humanities Building
+map.set(34, "mac-guessr/humanities4.jpg"); //The Humanities Building
+map.set(35, "mac-guessr/oldmain1.jpg"); //Old Main
+map.set(36, "mac-guessr/oldmain2.jpg"); //Old Main
+map.set(37, "mac-guessr/oldmain3.jpg"); //Old Main
+map.set(38, "mac-guessr/oldmain4.jpg"); //Old Main
+map.set(39, "mac-guessr/olin1.jpg"); //Olin-Rice Science Center
+map.set(40, "mac-guessr/olin2.jpg"); //Olin-Rice Science Center
+map.set(41, "mac-guessr/olin3.jpg"); //Olin-Rice Science Center
+map.set(42, "mac-guessr/olin4.jpg"); //Olin-Rice Science Center
+map.set(43, "mac-guessr/weyerhaeuser1.jpg"); //Weyerhaeuser Hall
+map.set(44, "mac-guessr/weyerhaeuser2.jpg"); //Weyerhaeuser Hall
+map.set(45, "mac-guessr/weyerhaeuser3.jpg"); //Weyerhaeuser Hall
+map.set(46, "mac-guessr/weyerhaeuser4.jpg"); //Weyerhaeuser Hall
+
 
 const fullNameMap = new Map();
 fullNameMap.set('theater', 'The Theater and Dance Building');
@@ -201,7 +229,7 @@ function newGame() {
 }
 
 function getRandomImage() {
-    let randNum = getRandomNumber(19);
+    let randNum = getRandomNumber(46);
     let randImage = map.get(randNum);
     while (correctlyGuessedImages.includes(randImage)) {
         randNum = getRandomNumber(19);

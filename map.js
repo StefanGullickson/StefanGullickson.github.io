@@ -62,7 +62,6 @@ map.set(44, "mac-guessr/weyerhaeuser2.jpg"); //Weyerhaeuser Hall
 map.set(45, "mac-guessr/weyerhaeuser3.jpg"); //Weyerhaeuser Hall
 map.set(46, "mac-guessr/weyerhaeuser4.jpg"); //Weyerhaeuser Hall
 
-
 const fullNameMap = new Map();
 fullNameMap.set('theater', 'The Theater and Dance Building');
 fullNameMap.set('library', 'DeWitt Wallace Library');
@@ -81,6 +80,13 @@ fullNameMap.set('weyerhaeuser', 'Weyerhaeuser Hall');
 fullNameMap.set('_77mac', '77 Mac');
 fullNameMap.set('stadium', 'Macalester Stadium');
 fullNameMap.set('kirk', 'Kirk Hall');
+
+const difficultyMap = new Map();
+difficultyMap.set(1, "mac-guessr/theater1.jpg"); // first input is image difficulty rated 1-3
+difficultyMap.set(3, "mac-guessr/theater2.jpg");
+difficultyMap.set(2, "mac-guessr/theater3.jpg");
+difficultyMap.set(2, "mac-guessr/theater4.jpg");
+
 
 let correctlyGuessedImages = [];
 
@@ -229,7 +235,7 @@ function newGame() {
 }
 
 function getRandomImage() {
-    let randNum = getRandomNumber(46);
+    let randNum = getRandomNumber(19);
     let randImage = map.get(randNum);
     while (correctlyGuessedImages.includes(randImage)) {
         randNum = getRandomNumber(19);

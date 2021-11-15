@@ -235,10 +235,10 @@ function newGame() {
 }
 
 function getRandomImage() {
-    let randNum = getRandomNumber(19);
+    let randNum = getRandomNumber(46);
     let randImage = map.get(randNum);
     while (correctlyGuessedImages.includes(randImage)) {
-        randNum = getRandomNumber(19);
+        randNum = getRandomNumber(46);
         randImage = map.get(randNum);
     }
     var img = document.createElement('img');

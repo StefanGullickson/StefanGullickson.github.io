@@ -14,53 +14,58 @@ document.body.appendChild(link);
 * matches its corresponding svg object ID
 */
 const map = new Map();
-map.set(0, "mac-guessr/theater1.jpg"); //Theater and Dance Building
-map.set(1, "mac-guessr/theater2.jpg"); //Theater and Dance Building
-map.set(2, "mac-guessr/theater3.jpg"); //Theater and Dance Building
-map.set(3, "mac-guessr/theater4.jpg"); //Theater and Dance Building
-map.set(4, 'mac-guessr/library1.jpg'); //DeWitt Wallace Library
-map.set(5, 'mac-guessr/library2.jpg'); //DeWitt Wallace Library
-map.set(6, 'mac-guessr/library3.jpg'); //DeWitt Wallace Library
-map.set(7, 'mac-guessr/library4.jpg'); //DeWitt Wallace Library
-map.set(8, 'mac-guessr/art1.jpg'); //Joan Adams Mondale Hall of Studio Art
-map.set(9, 'mac-guessr/art2.jpg'); //Joan Adams Mondale Hall of Studio Art
-map.set(10, 'mac-guessr/art3.jpg'); //Joan Adams Mondale Hall of Studio Art
-map.set(11, 'mac-guessr/jwall1.jpg'); //Janet Wallace Fine Arts Center
-map.set(12, 'mac-guessr/jwall2.jpg'); //Janet Wallace Fine Arts Center
-map.set(13, 'mac-guessr/jwall3.jpg'); //Janet Wallace Fine Arts Center
-map.set(14, 'mac-guessr/jwall4.jpg'); //Janet Wallace Fine Arts Center
-map.set(15, 'mac-guessr/leonard1.jpg'); //Leonard Center Athletics and Wellness Complex
-map.set(16, 'mac-guessr/leonard2.jpg'); //Leonard Center Athletics and Wellness Complex
-map.set(17, 'mac-guessr/leonard3.jpg'); //Leonard Center Athletics and Wellness Complex
-map.set(18, 'mac-guessr/leonard4.jpg'); //Leonard Center Athletics and Wellness Complex
-map.set(19, "mac-guessr/carnegie1.jpg"); //Carnegie Hall
-map.set(20, "mac-guessr/carnegie2.jpg"); //Carnegie Hall
-map.set(21, "mac-guessr/carnegie3.jpg"); //Carnegie Hall
-map.set(22, "mac-guessr/carnegie4.jpg"); //Carnegie Hall
-map.set(23, "mac-guessr/cc1.jpg"); //Ruth Stricker Dayton Campus Center
-map.set(24, "mac-guessr/cc2.jpg"); //Ruth Stricker Dayton Campus Center
-map.set(25, "mac-guessr/cc3.jpg"); //Ruth Stricker Dayton Campus Center
-map.set(26, "mac-guessr/cc4.jpg"); //Ruth Stricker Dayton Campus Center
-map.set(27, "mac-guessr/chapel1.jpg"); //The Weyerhaeuser Memorial Chapel
-map.set(28, "mac-guessr/chapel2.jpg"); //The Weyerhaeuser Memorial Chapel
-map.set(29, "mac-guessr/chapel3.jpg"); //The Weyerhaeuser Memorial Chapel
-map.set(30, "mac-guessr/chapel4.jpg"); //The Weyerhaeuser Memorial Chapel
-map.set(31, "mac-guessr/humanities1.jpg"); //The Humanities Building
-map.set(32, "mac-guessr/humanities2.jpg"); //The Humanities Building
-map.set(33, "mac-guessr/humanities3.jpg"); //The Humanities Building
-map.set(34, "mac-guessr/humanities4.jpg"); //The Humanities Building
-map.set(35, "mac-guessr/oldmain1.jpg"); //Old Main
-map.set(36, "mac-guessr/oldmain2.jpg"); //Old Main
-map.set(37, "mac-guessr/oldmain3.jpg"); //Old Main
-map.set(38, "mac-guessr/oldmain4.jpg"); //Old Main
-map.set(39, "mac-guessr/olin1.jpg"); //Olin-Rice Science Center
-map.set(40, "mac-guessr/olin2.jpg"); //Olin-Rice Science Center
-map.set(41, "mac-guessr/olin3.jpg"); //Olin-Rice Science Center
-map.set(42, "mac-guessr/olin4.jpg"); //Olin-Rice Science Center
-map.set(43, "mac-guessr/weyerhaeuser1.jpg"); //Weyerhaeuser Hall
-map.set(44, "mac-guessr/weyerhaeuser2.jpg"); //Weyerhaeuser Hall
-map.set(45, "mac-guessr/weyerhaeuser3.jpg"); //Weyerhaeuser Hall
-map.set(46, "mac-guessr/weyerhaeuser4.jpg"); //Weyerhaeuser Hall
+map.set(0, "mac-guessr/theater1.jpg"); //Theater and Dance Building - medium
+map.set(1, "mac-guessr/theater2.jpg"); //Theater and Dance Building - hard
+map.set(2, "mac-guessr/theater3.jpg"); //Theater and Dance Building - hard
+map.set(3, "mac-guessr/theater4.jpg"); //Theater and Dance Building - hard
+map.set(4, 'mac-guessr/library1.jpg'); //DeWitt Wallace Library - hard
+map.set(5, 'mac-guessr/library2.jpg'); //DeWitt Wallace Library - medium
+map.set(6, 'mac-guessr/library3.jpg'); //DeWitt Wallace Library - medium
+map.set(7, 'mac-guessr/library4.jpg'); //DeWitt Wallace Library - hard
+map.set(8, 'mac-guessr/art1.jpg'); //Joan Adams Mondale Hall of Studio Art - hard
+map.set(9, 'mac-guessr/art2.jpg'); //Joan Adams Mondale Hall of Studio Art - hard
+map.set(10, 'mac-guessr/art3.jpg'); //Joan Adams Mondale Hall of Studio Art - hard
+map.set(11, 'mac-guessr/jwall1.jpg'); //Janet Wallace Fine Arts Center - medium
+map.set(12, 'mac-guessr/jwall2.jpg'); //Janet Wallace Fine Arts Center - easy
+map.set(13, 'mac-guessr/jwall3.jpg'); //Janet Wallace Fine Arts Center - hard
+map.set(14, 'mac-guessr/jwall4.jpg'); //Janet Wallace Fine Arts Center - medium
+map.set(15, 'mac-guessr/leonard1.jpg'); //Leonard Center Athletics and Wellness Complex - medium
+map.set(16, 'mac-guessr/leonard2.jpg'); //Leonard Center Athletics and Wellness Complex - easy
+map.set(17, 'mac-guessr/leonard3.jpg'); //Leonard Center Athletics and Wellness Complex - easy
+map.set(18, 'mac-guessr/leonard4.jpg'); //Leonard Center Athletics and Wellness Complex - medium
+map.set(19, "mac-guessr/carnegie1.jpg"); //Carnegie Hall - medium
+map.set(20, "mac-guessr/carnegie2.jpg"); //Carnegie Hall - hard
+map.set(21, "mac-guessr/carnegie3.jpg"); //Carnegie Hall - easy
+map.set(22, "mac-guessr/carnegie4.jpg"); //Carnegie Hall - medium
+map.set(23, "mac-guessr/cc1.jpg"); //Ruth Stricker Dayton Campus Center - easy
+map.set(24, "mac-guessr/cc2.jpg"); //Ruth Stricker Dayton Campus Center - easy
+map.set(25, "mac-guessr/cc3.jpg"); //Ruth Stricker Dayton Campus Center - easy
+map.set(26, "mac-guessr/cc4.jpg"); //Ruth Stricker Dayton Campus Center - easy
+map.set(27, "mac-guessr/chapel1.jpg"); //The Weyerhaeuser Memorial Chapel - medium
+map.set(28, "mac-guessr/chapel2.jpg"); //The Weyerhaeuser Memorial Chapel - medium
+map.set(29, "mac-guessr/chapel3.jpg"); //The Weyerhaeuser Memorial Chapel - easy
+map.set(30, "mac-guessr/chapel4.jpg"); //The Weyerhaeuser Memorial Chapel - easy
+map.set(31, "mac-guessr/humanities1.jpg"); //The Humanities Building - medium
+map.set(32, "mac-guessr/humanities2.jpg"); //The Humanities Building - hard
+map.set(33, "mac-guessr/humanities3.jpg"); //The Humanities Building - easy
+map.set(34, "mac-guessr/humanities4.jpg"); //The Humanities Building - medium
+map.set(35, "mac-guessr/oldmain1.jpg"); //Old Main - medium
+map.set(36, "mac-guessr/oldmain2.jpg"); //Old Main - hard
+map.set(37, "mac-guessr/oldmain3.jpg"); //Old Main - easy
+map.set(38, "mac-guessr/oldmain4.jpg"); //Old Main - medium
+map.set(39, "mac-guessr/olin1.jpg"); //Olin-Rice Science Center - medium
+map.set(40, "mac-guessr/olin2.jpg"); //Olin-Rice Science Center - easy
+map.set(41, "mac-guessr/olin3.jpg"); //Olin-Rice Science Center - easy
+map.set(42, "mac-guessr/olin4.jpg"); //Olin-Rice Science Center - medium
+map.set(43, "mac-guessr/weyerhaeuser1.jpg"); //Weyerhaeuser Hall - easy
+map.set(44, "mac-guessr/weyerhaeuser2.jpg"); //Weyerhaeuser Hall - easy
+map.set(45, "mac-guessr/weyerhaeuser3.jpg"); //Weyerhaeuser Hall - medium
+map.set(46, "mac-guessr/weyerhaeuser4.jpg"); //Weyerhaeuser Hall - medium
+
+//total easy - 16
+//total medium - 19
+//total hard - 12
+
 
 const fullNameMap = new Map();
 fullNameMap.set('theater', 'The Theater and Dance Building');

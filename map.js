@@ -87,64 +87,76 @@ fullNameMap.set('stadium', 'Macalester Stadium');
 fullNameMap.set('kirk', 'Kirk Hall');
 
 const difficultyMap = new Map(); // first input in map is image difficulty rated 1-3
-difficultyMap.set(1, "mac-guessr/theater1.jpg"); // Theater and Dance building - easy
-difficultyMap.set(3, "mac-guessr/theater2.jpg"); // Theater and Dance building - hard
-difficultyMap.set(2, "mac-guessr/theater3.jpg"); // Theater and Dance building - medium
-difficultyMap.set(2, "mac-guessr/theater4.jpg"); // Theater and Dance building - medium
-difficultyMap.set(3, 'mac-guessr/library1.jpg'); //DeWitt Wallace Library - hard
-difficultyMap.set(2, 'mac-guessr/library2.jpg'); //DeWitt Wallace Library - medium
-difficultyMap.set(2, 'mac-guessr/library3.jpg'); //DeWitt Wallace Library - medium
-difficultyMap.set(3, 'mac-guessr/library4.jpg'); //DeWitt Wallace Library - hard
-difficultyMap.set(3, 'mac-guessr/art1.jpg'); //Joan Adams Mondale Hall of Studio Art - hard
-difficultyMap.set(3, 'mac-guessr/art2.jpg'); //Joan Adams Mondale Hall of Studio Art - hard
-difficultyMap.set(3, 'mac-guessr/art3.jpg'); //Joan Adams Mondale Hall of Studio Art - hard
-difficultyMap.set(2, 'mac-guessr/jwall1.jpg'); //Janet Wallace Fine Arts Center - medium
-difficultyMap.set(1, 'mac-guessr/jwall2.jpg'); //Janet Wallace Fine Arts Center - easy
-difficultyMap.set(3, 'mac-guessr/jwall3.jpg'); //Janet Wallace Fine Arts Center - hard
-difficultyMap.set(2, 'mac-guessr/jwall4.jpg'); //Janet Wallace Fine Arts Center - medium
-difficultyMap.set(2, 'mac-guessr/leonard1.jpg'); //Leonard Center Athletics and Wellness Complex - medium
-difficultyMap.set(1, 'mac-guessr/leonard2.jpg'); //Leonard Center Athletics and Wellness Complex - easy
-difficultyMap.set(1, 'mac-guessr/leonard3.jpg'); //Leonard Center Athletics and Wellness Complex - easy
-difficultyMap.set(2, 'mac-guessr/leonard4.jpg'); //Leonard Center Athletics and Wellness Complex - medium
-difficultyMap.set(2, "mac-guessr/carnegie1.jpg"); //Carnegie Hall - medium
-difficultyMap.set(3, "mac-guessr/carnegie2.jpg"); //Carnegie Hall - hard
-difficultyMap.set(1, "mac-guessr/carnegie3.jpg"); //Carnegie Hall - easy
-difficultyMap.set(2, "mac-guessr/carnegie4.jpg"); //Carnegie Hall - medium
-difficultyMap.set(1, "mac-guessr/cc1.jpg"); //Ruth Stricker Dayton Campus Center - easy
-difficultyMap.set(1, "mac-guessr/cc2.jpg"); //Ruth Stricker Dayton Campus Center - easy
-difficultyMap.set(1, "mac-guessr/cc3.jpg"); //Ruth Stricker Dayton Campus Center - easy
-difficultyMap.set(1, "mac-guessr/cc4.jpg"); //Ruth Stricker Dayton Campus Center - easy
-difficultyMap.set(2, "mac-guessr/chapel1.jpg"); //The Weyerhaeuser Memorial Chapel - medium
-difficultyMap.set(2, "mac-guessr/chapel2.jpg"); //The Weyerhaeuser Memorial Chapel - medium
-difficultyMap.set(1, "mac-guessr/chapel3.jpg"); //The Weyerhaeuser Memorial Chapel - easy
-difficultyMap.set(1, "mac-guessr/chapel4.jpg"); //The Weyerhaeuser Memorial Chapel - easy
-difficultyMap.set(2, "mac-guessr/humanities1.jpg"); //The Humanities Building - medium
-difficultyMap.set(3, "mac-guessr/humanities2.jpg"); //The Humanities Building - hard
-difficultyMap.set(1, "mac-guessr/humanities3.jpg"); //The Humanities Building - easy
-difficultyMap.set(2, "mac-guessr/humanities4.jpg"); //The Humanities Building - medium
-difficultyMap.set(2, "mac-guessr/oldmain1.jpg"); //Old Main - medium
-difficultyMap.set(3, "mac-guessr/oldmain2.jpg"); //Old Main - hard
-difficultyMap.set(1, "mac-guessr/oldmain3.jpg"); //Old Main - easy
-difficultyMap.set(2, "mac-guessr/oldmain4.jpg"); //Old Main - medium
-difficultyMap.set(2, "mac-guessr/olin1.jpg");  // Olin-Rice Science Center- medium
-difficultyMap.set(1, "mac-guessr/olin2.jpg"); //Olin-Rice Science Center - easy
-difficultyMap.set(1, "mac-guessr/olin3.jpg"); //Olin-Rice Science Center - easy
-difficultyMap.set(2, "mac-guessr/olin4.jpg"); //Olin-Rice Science Center - medium
-difficultyMap.set(1, "mac-guessr/weyerhaeuser1.jpg"); //Weyerhaeuser Hall - easy
-difficultyMap.set(1, "mac-guessr/weyerhaeuser2.jpg"); //Weyerhaeuser Hall - easy
-difficultyMap.set(2, "mac-guessr/weyerhaeuser3.jpg"); //Weyerhaeuser Hall - medium
-difficultyMap.set(2, "mac-guessr/weyerhaeuser4.jpg"); //Weyerhaeuser Hall - medium
+difficultyMap.set("mac-guessr/theater1.jpg", 1); // Theater and Dance building - easy
+difficultyMap.set("mac-guessr/theater2.jpg", 3); // Theater and Dance building - hard
+difficultyMap.set("mac-guessr/theater3.jpg", 2); // Theater and Dance building - medium
+difficultyMap.set("mac-guessr/theater4.jpg", 2); // Theater and Dance building - medium
+difficultyMap.set('mac-guessr/library1.jpg', 3); //DeWitt Wallace Library - hard
+difficultyMap.set('mac-guessr/library2.jpg', 2); //DeWitt Wallace Library - medium
+difficultyMap.set('mac-guessr/library3.jpg', 2); //DeWitt Wallace Library - medium
+difficultyMap.set('mac-guessr/library4.jpg', 3); //DeWitt Wallace Library - hard
+difficultyMap.set('mac-guessr/art1.jpg', 3); //Joan Adams Mondale Hall of Studio Art - hard
+difficultyMap.set('mac-guessr/art2.jpg', 3); //Joan Adams Mondale Hall of Studio Art - hard
+difficultyMap.set('mac-guessr/art3.jpg', 3); //Joan Adams Mondale Hall of Studio Art - hard
+difficultyMap.set('mac-guessr/jwall1.jpg', 2); //Janet Wallace Fine Arts Center - medium
+difficultyMap.set('mac-guessr/jwall2.jpg', 1); //Janet Wallace Fine Arts Center - easy
+difficultyMap.set('mac-guessr/jwall3.jpg', 3); //Janet Wallace Fine Arts Center - hard
+difficultyMap.set('mac-guessr/jwall4.jpg', 2); //Janet Wallace Fine Arts Center - medium
+difficultyMap.set('mac-guessr/leonard1.jpg', 2); //Leonard Center Athletics and Wellness Complex - medium
+difficultyMap.set('mac-guessr/leonard2.jpg', 1); //Leonard Center Athletics and Wellness Complex - easy
+difficultyMap.set('mac-guessr/leonard3.jpg', 1); //Leonard Center Athletics and Wellness Complex - easy
+difficultyMap.set('mac-guessr/leonard4.jpg', 2); //Leonard Center Athletics and Wellness Complex - medium
+difficultyMap.set("mac-guessr/carnegie1.jpg", 2); //Carnegie Hall - medium
+difficultyMap.set("mac-guessr/carnegie2.jpg", 3); //Carnegie Hall - hard
+difficultyMap.set("mac-guessr/carnegie3.jpg", 1); //Carnegie Hall - easy
+difficultyMap.set("mac-guessr/carnegie4.jpg", 2); //Carnegie Hall - medium
+difficultyMap.set("mac-guessr/cc1.jpg", 1); //Ruth Stricker Dayton Campus Center - easy
+difficultyMap.set("mac-guessr/cc2.jpg", 1); //Ruth Stricker Dayton Campus Center - easy
+difficultyMap.set("mac-guessr/cc3.jpg", 1); //Ruth Stricker Dayton Campus Center - easy
+difficultyMap.set("mac-guessr/cc4.jpg", 1); //Ruth Stricker Dayton Campus Center - easy
+difficultyMap.set("mac-guessr/chapel1.jpg", 2); //The Weyerhaeuser Memorial Chapel - medium
+difficultyMap.set("mac-guessr/chapel2.jpg", 2); //The Weyerhaeuser Memorial Chapel - medium
+difficultyMap.set("mac-guessr/chapel3.jpg", 1); //The Weyerhaeuser Memorial Chapel - easy
+difficultyMap.set("mac-guessr/chapel4.jpg", 1); //The Weyerhaeuser Memorial Chapel - easy
+difficultyMap.set("mac-guessr/humanities1.jpg", 2); //The Humanities Building - medium
+difficultyMap.set("mac-guessr/humanities2.jpg", 3); //The Humanities Building - hard
+difficultyMap.set("mac-guessr/humanities3.jpg", 1); //The Humanities Building - easy
+difficultyMap.set("mac-guessr/humanities4.jpg", 2); //The Humanities Building - medium
+difficultyMap.set("mac-guessr/oldmain1.jpg", 2); //Old Main - medium
+difficultyMap.set("mac-guessr/oldmain2.jpg", 3); //Old Main - hard
+difficultyMap.set("mac-guessr/oldmain3.jpg", 1); //Old Main - easy
+difficultyMap.set("mac-guessr/oldmain4.jpg", 2); //Old Main - medium
+difficultyMap.set("mac-guessr/olin1.jpg", 2);  // Olin-Rice Science Center- medium
+difficultyMap.set("mac-guessr/olin2.jpg", 1); //Olin-Rice Science Center - easy
+difficultyMap.set("mac-guessr/olin3.jpg", 1); //Olin-Rice Science Center - easy
+difficultyMap.set("mac-guessr/olin4.jpg", 2); //Olin-Rice Science Center - medium
+difficultyMap.set("mac-guessr/weyerhaeuser1.jpg", 1); //Weyerhaeuser Hall - easy
+difficultyMap.set("mac-guessr/weyerhaeuser2.jpg", 1); //Weyerhaeuser Hall - easy
+difficultyMap.set("mac-guessr/weyerhaeuser3.jpg", 2); //Weyerhaeuser Hall - medium
+difficultyMap.set("mac-guessr/weyerhaeuser4.jpg", 2); //Weyerhaeuser Hall - medium
 
 
 
 
 let correctlyGuessedImages = [];
+let difficultyLevel = 0;
+let round = 0;
 
 // Begin game function: adds map and random image to body of document
 function MCG_Pic() {
 
     correctlyGuessedImages = [];
     let lives = 5;
+    round += round;
+    if (round <= 5) {
+        difficultyLevel = 1;
+    }
+    else if (round > 5 && round <=10) {
+        difficultyLevel = 2;
+    }
+    else if (round > 10) {
+        difficultyLevel = 3;
+    }
     up.innerHTML = "Lives Remaining: " + lives;
 
     // adds the visual map to the document, and function for clicking on buildings
@@ -156,7 +168,7 @@ function MCG_Pic() {
     document.getElementById('body').appendChild(mapImage);
     
     // Gets a random image from the map and adds it to the document
-    let randImage = getRandomImage();
+    let randImage = getImage(difficultyLevel);
     let buildingName = grabImageLocation(randImage);
     
     mapImage.addEventListener("load", () => {
@@ -168,7 +180,6 @@ function MCG_Pic() {
                     console.log(building.style); 
 
                     if (building.id === buildingName) {
-                        
                         down.innerHTML = "Congratulations! That is correct! This image was taken in " + fullNameMap.get(buildingName) + ".";
                         document.getElementById("countdown").hidden = false;
                         correctlyGuessedImages.push(randImage);
@@ -181,7 +192,7 @@ function MCG_Pic() {
                                 document.getElementById('body').appendChild(mapImage);
                                 document.getElementById("countdown").hidden = true;
                                 document.body.removeChild(document.getElementById('randImage'));
-                                randImage = getRandomImage();
+                                randImage = getImage(difficultyLevel);
                                 buildingName = grabImageLocation(randImage);
                                 down.innerHTML = "Select which building you think the image was taken in!";
 
@@ -284,10 +295,14 @@ function newGame() {
     }; 
 }
 
-function getRandomImage() {
+function getImage(difficultyLevel) {
     let randNum = getRandomNumber(46);
     let randImage = map.get(randNum);
     while (correctlyGuessedImages.includes(randImage)) {
+        randNum = getRandomNumber(46);
+        randImage = map.get(randNum);
+    }
+    while (difficultyMap.get(randImage) != difficultyLevel) {
         randNum = getRandomNumber(46);
         randImage = map.get(randNum);
     }
@@ -299,4 +314,6 @@ function getRandomImage() {
 
     return randImage;
 }
+    
+
   

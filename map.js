@@ -135,28 +135,18 @@ difficultyMap.set("mac-guessr/weyerhaeuser2.jpg", 1); //Weyerhaeuser Hall - easy
 difficultyMap.set("mac-guessr/weyerhaeuser3.jpg", 2); //Weyerhaeuser Hall - medium
 difficultyMap.set("mac-guessr/weyerhaeuser4.jpg", 2); //Weyerhaeuser Hall - medium
 
-
-
-
 let correctlyGuessedImages = [];
-let difficultyLevel = 0;
-let round = 0;
+let difficultyLevel = 1;
+let round = 1;
 
 // Begin game function: adds map and random image to body of document
 function MCG_Pic() {
 
+    console.log("game on");
+
     correctlyGuessedImages = [];
     let lives = 5;
-    round += round;
-    if (round <= 5) {
-        difficultyLevel = 1;
-    }
-    else if (round > 5 && round <=10) {
-        difficultyLevel = 2;
-    }
-    else if (round > 10) {
-        difficultyLevel = 3;
-    }
+
     up.innerHTML = "Lives Remaining: " + lives;
 
     // adds the visual map to the document, and function for clicking on buildings
@@ -168,18 +158,22 @@ function MCG_Pic() {
     document.getElementById('body').appendChild(mapImage);
     
     // Gets a random image from the map and adds it to the document
-    let randImage = getImage(difficultyLevel);
+    let randImage = getImage();
     let buildingName = grabImageLocation(randImage);
+    console.log("image difficulty: " + difficultyMap.get(randImage));
     
     mapImage.addEventListener("load", () => {
         mapImage.contentDocument
             .querySelectorAll("#buildings > *")
             .forEach((building) => {
                 building.addEventListener("click", () => {
-                    console.log(building.id);
-                    console.log(building.style); 
+                    // console.log(building.id);
+                    // console.log(building.style); 
 
                     if (building.id === buildingName) {
+                        updateDifficulty();
+                        round++;
+                        console.log("round: " + round);
                         down.innerHTML = "Congratulations! That is correct! This image was taken in " + fullNameMap.get(buildingName) + ".";
                         document.getElementById("countdown").hidden = false;
                         correctlyGuessedImages.push(randImage);
@@ -192,7 +186,8 @@ function MCG_Pic() {
                                 document.getElementById('body').appendChild(mapImage);
                                 document.getElementById("countdown").hidden = true;
                                 document.body.removeChild(document.getElementById('randImage'));
-                                randImage = getImage(difficultyLevel);
+                                randImage = getImage();
+                                console.log("image difficulty: " + difficultyMap.get(randImage));
                                 buildingName = grabImageLocation(randImage);
                                 down.innerHTML = "Select which building you think the image was taken in!";
 
@@ -279,7 +274,7 @@ function grabImageLocation(url) {
             break;
         }
     }
-    console.log(building);
+    // console.log(building);
     return building;
 }
 
@@ -293,19 +288,20 @@ function newGame() {
         document.body.removeChild(document.getElementById('randImage'));
         MCG_Pic();
     }; 
+
+    round = 1;
+    difficultyLevel = 1;
 }
 
-function getImage(difficultyLevel) {
+function getImage() {
     let randNum = getRandomNumber(46);
     let randImage = map.get(randNum);
-    while (correctlyGuessedImages.includes(randImage)) {
+
+    while (correctlyGuessedImages.includes(randImage) || difficultyMap.get(randImage) != difficultyLevel) {
         randNum = getRandomNumber(46);
         randImage = map.get(randNum);
     }
-    while (difficultyMap.get(randImage) != difficultyLevel) {
-        randNum = getRandomNumber(46);
-        randImage = map.get(randNum);
-    }
+
     var img = document.createElement('img');
     img.src = randImage;
     img.id = "randImage";
@@ -314,6 +310,17 @@ function getImage(difficultyLevel) {
 
     return randImage;
 }
-    
+   
+function updateDifficulty() {
+    if (round <= 5) {
+        difficultyLevel = 1;
+    }
+    else if (round > 5 && round <=10) {
+        difficultyLevel = 2;
+    }
+    else if (round > 10) {
+        difficultyLevel = 3;
+    }
+}
 
   

@@ -61,6 +61,19 @@ map.set(43, "mac-guessr/weyerhaeuser1.jpg"); //Weyerhaeuser Hall - easy
 map.set(44, "mac-guessr/weyerhaeuser2.jpg"); //Weyerhaeuser Hall - easy
 map.set(45, "mac-guessr/weyerhaeuser3.jpg"); //Weyerhaeuser Hall - medium
 map.set(46, "mac-guessr/weyerhaeuser4.jpg"); //Weyerhaeuser Hall - medium
+map.set(47, "mac-guessr/_77mac1.jpg"); //77 Mac
+map.set(48, "mac-guessr/_77mac1.jpg"); //77 Mac
+map.set(49, "mac-guessr/_77mac1.jpg"); //77 Mac
+map.set(50, "mac-guessr/_77mac1.jpg"); //77 Mac
+map.set(51, "mac-guessr/kagin1.jpg"); //Kagin Commons
+map.set(52, "mac-guessr/kagin2.jpg"); //Kagin Commons
+map.set(53, "mac-guessr/kagin3.jpg"); //Kagin Commons
+map.set(54, "mac-guessr/kagin4.jpg"); //Kagin Commons
+map.set(55, "mac-guessr/markim1.jpg"); //Markim Hall
+map.set(56, "mac-guessr/markim2.jpg"); //Markim Hall
+map.set(57, "mac-guessr/markim3.jpg"); //Markim Hall
+map.set(58, "mac-guessr/markim4.jpg"); //Markim Hall
+
 
 //total easy - 16
 //total medium - 19

@@ -203,7 +203,7 @@ function MCG_Pic() {
                         document.getElementById("countdown").hidden = false;
                         correctlyGuessedImages.push(randImage);
                         document.body.removeChild(document.getElementById('mapImage'));
-                        var timeleft = 5;
+                        var timeleft = 3;
                         var downloadTimer = setInterval(function(){
 
                             if(timeleft <= 0){
@@ -234,6 +234,7 @@ function MCG_Pic() {
                             newGame();
                         } else {
                             down.innerHTML = "That is incorrect. You have " + lives + " lives remaining.";
+                            down.innerHTML.style.color = "red";
                             up.innerHTML = "Lives Remaining: " + lives;
                         }
                         

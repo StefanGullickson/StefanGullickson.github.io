@@ -61,23 +61,23 @@ map.set(43, "mac-guessr/weyerhaeuser1.jpg"); //Weyerhaeuser Hall - easy
 map.set(44, "mac-guessr/weyerhaeuser2.jpg"); //Weyerhaeuser Hall - easy
 map.set(45, "mac-guessr/weyerhaeuser3.jpg"); //Weyerhaeuser Hall - medium
 map.set(46, "mac-guessr/weyerhaeuser4.jpg"); //Weyerhaeuser Hall - medium
-map.set(47, "mac-guessr/_77mac1.jpg"); //77 Mac
-map.set(48, "mac-guessr/_77mac1.jpg"); //77 Mac
-map.set(49, "mac-guessr/_77mac1.jpg"); //77 Mac
-map.set(50, "mac-guessr/_77mac1.jpg"); //77 Mac
-map.set(51, "mac-guessr/kagin1.jpg"); //Kagin Commons
-map.set(52, "mac-guessr/kagin2.jpg"); //Kagin Commons
-map.set(53, "mac-guessr/kagin3.jpg"); //Kagin Commons
-map.set(54, "mac-guessr/kagin4.jpg"); //Kagin Commons
-map.set(55, "mac-guessr/markim1.jpg"); //Markim Hall
-map.set(56, "mac-guessr/markim2.jpg"); //Markim Hall
-map.set(57, "mac-guessr/markim3.jpg"); //Markim Hall
-map.set(58, "mac-guessr/markim4.jpg"); //Markim Hall
+map.set(47, "mac-guessr/_77mac1.jpg"); //77 Mac - easy
+map.set(48, "mac-guessr/_77mac2.jpg"); //77 Mac - hard
+map.set(49, "mac-guessr/_77mac3.jpg"); //77 Mac - easy
+map.set(50, "mac-guessr/_77mac4.jpg"); //77 Mac - medium
+map.set(51, "mac-guessr/kagin1.jpg"); //Kagin Commons - easy
+map.set(52, "mac-guessr/kagin2.jpg"); //Kagin Commons - hard
+map.set(53, "mac-guessr/kagin3.jpg"); //Kagin Commons - medium
+map.set(54, "mac-guessr/kagin4.jpg"); //Kagin Commons - easy
+map.set(55, "mac-guessr/markim1.jpg"); //Markim Hall - hard
+map.set(56, "mac-guessr/markim2.jpg"); //Markim Hall - easy
+map.set(57, "mac-guessr/markim3.jpg"); //Markim Hall - hard
+map.set(58, "mac-guessr/markim4.jpg"); //Markim Hall - medium
 
 
-//total easy - 16
-//total medium - 19
-//total hard - 12
+//total easy - 21
+//total medium - 22
+//total hard - 16
 
 
 const fullNameMap = new Map();
@@ -147,6 +147,18 @@ difficultyMap.set("mac-guessr/weyerhaeuser1.jpg", 1); //Weyerhaeuser Hall - easy
 difficultyMap.set("mac-guessr/weyerhaeuser2.jpg", 1); //Weyerhaeuser Hall - easy
 difficultyMap.set("mac-guessr/weyerhaeuser3.jpg", 2); //Weyerhaeuser Hall - medium
 difficultyMap.set("mac-guessr/weyerhaeuser4.jpg", 2); //Weyerhaeuser Hall - medium
+difficultyMap.set("mac-guessr/_77mac1.jpg", 1); //77 Mac - easy
+difficultyMap.set("mac-guessr/_77mac2.jpg", 3); //77 Mac - hard
+difficultyMap.set("mac-guessr/_77mac3.jpg", 1); //77 Mac - easy
+difficultyMap.set("mac-guessr/_77mac4.jpg", 2); //77 Mac - medium
+difficultyMap.set("mac-guessr/kagin1.jpg", 1); //Kagin Commons - easy
+difficultyMap.set("mac-guessr/kagin2.jpg", 3); //Kagin Commons - hard
+difficultyMap.set("mac-guessr/kagin3.jpg", 2); //Kagin Commons - medium
+difficultyMap.set("mac-guessr/kagin4.jpg", 1); //Kagin Commons - easy
+difficultyMap.set("mac-guessr/markim1.jpg", 3); //Markim Hall - hard
+difficultyMap.set("mac-guessr/markim2.jpg", 1); //Markim Hall - easy
+difficultyMap.set("mac-guessr/markim3.jpg", 3); //Markim Hall - hard
+difficultyMap.set("mac-guessr/markim4.jpg", 2); //Markim Hall - medium
 
 let correctlyGuessedImages = [];
 let difficultyLevel = 1;
@@ -307,11 +319,11 @@ function newGame() {
 }
 
 function getImage() {
-    let randNum = getRandomNumber(46);
+    let randNum = getRandomNumber(58);
     let randImage = map.get(randNum);
 
     while (correctlyGuessedImages.includes(randImage) || difficultyMap.get(randImage) != difficultyLevel) {
-        randNum = getRandomNumber(46);
+        randNum = getRandomNumber(58);
         randImage = map.get(randNum);
     }
 

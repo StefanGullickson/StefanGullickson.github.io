@@ -232,6 +232,7 @@ function MCG_Pic() {
                             up.innerHTML = "Lives Remaining: " + lives;
                         } else if  (lives === 0){
                             down.innerHTML = "That is incorrect. You lost! The correct building was " + fullNameMap.get(buildingName) + ".";
+                            down.style.color = "red";
                             up.innerHTML = "Final Score: " + correctlyGuessedImages.length;
                             newGame();
                         } else {

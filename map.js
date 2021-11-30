@@ -169,6 +169,8 @@ function MCG_Pic() {
 
     console.log("game on");
 
+    down.style.color = "green";
+
     correctlyGuessedImages = [];
     let lives = 5;
 
@@ -234,7 +236,7 @@ function MCG_Pic() {
                             newGame();
                         } else {
                             down.innerHTML = "That is incorrect. You have " + lives + " lives remaining.";
-                            down.style.color = "red";
+                            // down.style.color = "red";
                             up.innerHTML = "Lives Remaining: " + lives;
                         }
                         
@@ -249,6 +251,7 @@ function MCG_Pic() {
                 });
                 building.addEventListener("mouseleave", () => {
                     down.innerHTML = "Select which building you think the image was taken in!";
+                    down.style.color = "green";
                     building.setAttribute("stroke", "none");
                 });
             });

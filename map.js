@@ -236,7 +236,7 @@ function MCG_Pic() {
                             newGame();
                         } else {
                             down.innerHTML = "That is incorrect. You have " + lives + " lives remaining.";
-                            // down.style.color = "red";
+                            down.style.color = "red";
                             up.innerHTML = "Lives Remaining: " + lives;
                         }
                         

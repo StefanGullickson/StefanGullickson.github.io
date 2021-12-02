@@ -160,34 +160,87 @@ difficultyMap.set("mac-guessr/markim4.jpg", 2); //Markim Hall - medium
 // difficultyMap.set("mac-guessr/_77mac3.jpg", 1); //77 Mac - easy
 // difficultyMap.set("mac-guessr/_77mac4.jpg", 2); //77 Mac - medium
 
+// 
+let mapImage = document.createElement('object');
+mapImage.data = 'mac-guessr/mcgpicnew.svg';
+mapImage.type = "image/svg+xml";
+mapImage.id = "mapImage";
+mapImage.style.height = "600px";
+mapImage.style.border = "thick solid black";
+
 let correctlyGuessedImages = [];
 let difficultyLevel = 1;
 let round = 1;
 
 // Begin game function: adds map and random image to body of document
-function MCG_Pic() {
-
-    console.log("game on");
-
-    down.style.color = "green";
+function runGame() {
 
     correctlyGuessedImages = [];
     let lives = 5;
 
     up.innerHTML = "Lives Remaining: " + lives;
 
+    let mapCaption = document.createElement('p');
+    mapCaption.textContent = "Hover over buildings for their name!";
+    mapCaption.className = "map";
+    mapCaption.id = "mapCaption";
+    document.getElementById("map").appendChild(mapCaption);
+
     // adds the visual map to the document, and function for clicking on buildings
-    let mapImage = document.createElement('object');
-    mapImage.data = 'mac-guessr/mcgpicnew.svg';
-    mapImage.type = "image/svg+xml";
-    mapImage.id = "mapImage";
-    mapImage.style.height = "450px";
-    document.getElementById('body').appendChild(mapImage);
+    document.getElementById("map").appendChild(mapImage);
+
+    let score = document.createElement('button');
+    score.textContent = "Score = 0";
+    score.style.backgroundColor = "blue";
+    score.style.fontSize = "50px";
+    document.getElementById("buttons").appendChild(score);
+
+    let hint = document.createElement('p');
+    hint.textContent = "No hint is available for this image.";
+    hint.className = "map";
+    document.getElementById("image").appendChild(hint);
+
+    // let hintButton = document.createElement('button');
+    // hintButton.textContent = "click for hint";
+    // hintButton.onclick = 
+    // function() {
+    //     hintButton.remove();
+    //     document.getElementById("randImage").remove();
+    //     let hint = document.createElement('p');
+    //     hint.textContent = "No hint is available for this image.";
+    //     document.getElementById("image").appendChild(hint);
+    //     document.getElementById("image").appendChild(document.getElementById('randImage'));
+    // };
     
     // Gets a random image from the map and adds it to the document
     let randImage = getImage();
     let buildingName = grabImageLocation(randImage);
     console.log("image difficulty: " + difficultyMap.get(randImage));
+
+    down.style.marginTop = "100px";
+    down.style.marginBottom = "100px";
+    document.getElementById("buttons").appendChild(down);
+
+    
+    document.getElementById("buttons").appendChild(document.getElementById('Button'));
+    document.getElementById("buttons").appendChild(up);
+
+    up.style.marginTop = "100px";
+
+    let lifeCounter = document.createElement('div');
+    for (i = 0; i < 5; i++) {
+        var lifeSquare = document.createElement('button');
+        lifeSquare.className = "buttons";
+        lifeSquare.style.height = "20px";
+        lifeSquare.style.width = "20px";
+        lifeSquare.style.margin = "10px";
+        lifeSquare.style.border = "1px";
+        lifeSquare.style.borderColor = "black";
+        lifeSquare.style.backgroundImage = null;
+        lifeCounter.appendChild(lifeSquare);
+    }
+    lifeCounter.style.top = "10px";
+    document.getElementById("buttons").appendChild(lifeCounter);
     
     mapImage.addEventListener("load", () => {
         mapImage.contentDocument
@@ -200,19 +253,24 @@ function MCG_Pic() {
                     if (building.id === buildingName) {
                         updateDifficulty();
                         round++;
+                        score.textContent = "Score: " + (round - 1) ;
                         console.log("round: " + round);
                         down.innerHTML = "Congratulations! That is correct! This image was taken in " + fullNameMap.get(buildingName) + ".";
                         document.getElementById("countdown").hidden = false;
                         correctlyGuessedImages.push(randImage);
-                        document.body.removeChild(document.getElementById('mapImage'));
+                        mapCaption.textContent = "Hover mouse over buildings to see what they are called!";
+                        document.getElementById("map").removeChild(mapCaption);
+                        document.getElementById("map").removeChild(mapImage);
                         var timeleft = 3;
                         var downloadTimer = setInterval(function(){
 
                             if(timeleft <= 0){
                                 clearInterval(downloadTimer);
-                                document.getElementById('body').appendChild(mapImage);
+                                document.getElementById("map").appendChild(mapCaption);
+                                document.getElementById("map").appendChild(mapImage);
+                                document.getElementById("countdown").textContent = null;
                                 document.getElementById("countdown").hidden = true;
-                                document.body.removeChild(document.getElementById('randImage'));
+                                document.getElementById("image").removeChild(document.getElementById('randImage'));
                                 randImage = getImage();
                                 console.log("image difficulty: " + difficultyMap.get(randImage));
                                 buildingName = grabImageLocation(randImage);
@@ -237,7 +295,7 @@ function MCG_Pic() {
                             newGame();
                         } else {
                             down.innerHTML = "That is incorrect. You have " + lives + " lives remaining.";
-                            down.style.color = "red";
+                            mapCaption.style.color = "red";
                             up.innerHTML = "Lives Remaining: " + lives;
                         }
                         
@@ -246,13 +304,13 @@ function MCG_Pic() {
 
                 // These two event listeners allow for users to hover over buildings and get information about them.
                 building.addEventListener("mouseenter", () => {
-                    down.innerHTML = "This is " + fullNameMap.get(building.id) + ".";
+                    mapCaption.textContent = "This is " + fullNameMap.get(building.id) + ".";
                     building.setAttribute("stroke", "black");
                     building.setAttribute("stroke-width", "5");
                 });
                 building.addEventListener("mouseleave", () => {
-                    down.innerHTML = "Select which building you think the image was taken in!";
-                    down.style.color = "green";
+                    mapCaption.textContent = "Hover over buildings for their name!";
+                    mapCaption.style.color = "blue";
                     building.setAttribute("stroke", "none");
                 });
             });
@@ -261,9 +319,19 @@ function MCG_Pic() {
     document.getElementById("Button").textContent = "Reset Game";
     document.querySelector('#Button').onclick = 
     function() {
-        document.body.removeChild(document.getElementById('mapImage'));
-        document.body.removeChild(document.getElementById('randImage'));
-        MCG_Pic();
+        document.getElementById("map").removeChild(mapImage);
+        document.getElementById("map").removeChild(mapCaption);
+        document.getElementById("image").removeChild(document.getElementById('randImage'));
+        document.getElementById("image").removeChild(hint);
+        document.getElementById("buttons").removeChild(up);
+        document.getElementById("buttons").removeChild(down);
+        document.getElementById("buttons").removeChild(score);
+        document.getElementById("buttons").removeChild(lifeCounter);   
+        round = 1;
+        difficultyLevel = 1;
+        correctlyGuessedImages = [];
+        runGame();
+
     }; 
     down.innerHTML = "Select which building you think the image was taken in!";
 } 
@@ -309,14 +377,17 @@ function grabImageLocation(url) {
 }
 
 function newGame() {
-    document.body.removeChild(document.getElementById('mapImage'));
+    document.getElementById("map").removeChild(mapImage);
+    document.getElementById("map").removeChild(mapCaption);        
+    document.getElementById("buttons").removeChild(score);
+    document.getElementById("buttons").removeChild(lifeCounter);
     document.querySelector('#Button').textContent = 'New Game';   
     document.querySelector('#Button').disabled = false;
     document.querySelector('#Button').onclick = 
     function() {
         correctlyGuessedImages = [];
         document.body.removeChild(document.getElementById('randImage'));
-        MCG_Pic();
+        runGame();
     }; 
 
     round = 1;
@@ -325,7 +396,7 @@ function newGame() {
 
 function getImage() {
     let randNum = getRandomNumber(58);
-    let randImage = map.get(randNum);
+    var randImage = map.get(randNum);
 
     while (correctlyGuessedImages.includes(randImage) || difficultyMap.get(randImage) != difficultyLevel) {
         randNum = getRandomNumber(58);
@@ -335,8 +406,8 @@ function getImage() {
     var img = document.createElement('img');
     img.src = randImage;
     img.id = "randImage";
-    img.style.height = "450px";
-    document.getElementById('body').appendChild(img);
+    img.style.height = "600px";
+    document.getElementById("image").appendChild(img);
 
     return randImage;
 }

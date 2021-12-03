@@ -228,8 +228,9 @@ function runGame() {
     up.style.marginTop = "100px";
 
     let lifeCounter = document.createElement('div');
-    for (i = 0; i < 5; i++) {
+    for (i = 1; i < 6; i++) {
         var lifeSquare = document.createElement('button');
+        lifeSquare.id = "lifeSquare" + i;
         lifeSquare.className = "buttons";
         lifeSquare.style.height = "20px";
         lifeSquare.style.width = "20px";

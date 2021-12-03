@@ -228,7 +228,7 @@ function runGame() {
     up.style.marginTop = "100px";
 
     let lifeCounter = document.createElement('div');
-    for (i = 1; i < 6; i++) {
+    for (i = 0; i < 5; i++) {
         var lifeSquare = document.createElement('button');
         lifeSquare.id = "lifeSquare" + i;
         lifeSquare.className = "buttons";
@@ -284,7 +284,9 @@ function runGame() {
                         }, 1000);
                     } else {
 
+                        var currLife = "lifeSquare" + (5 - lives);
                         lives -= 1;
+                        document.getElementById(currLife).style.backgroundColor = "red";
 
                         if (lives === 1) {
                             down.innerHTML = "That is incorrect. You have " + lives + " life remaining.";

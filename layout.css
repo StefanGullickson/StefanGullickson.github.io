@@ -66,6 +66,7 @@ button {
 
 .map {
     color: blue;
+    font-family: Arial, Helvetica, sans-serif;
     font-size: "100px";
     font-weight: "bold";
     background-color: orange;

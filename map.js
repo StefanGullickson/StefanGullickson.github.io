@@ -168,6 +168,35 @@ mapImage.id = "mapImage";
 mapImage.style.height = "600px";
 mapImage.style.border = "thick solid black";
 
+let score = document.createElement('button');
+score.textContent = "Score = 0";
+score.style.backgroundColor = "blue";
+score.style.fontSize = "50px";
+
+let hint = document.createElement('p');
+hint.textContent = "No hint is available for this image.";
+hint.className = "map";
+
+let mapCaption = document.createElement('p');
+mapCaption.textContent = "Hover over buildings for their name!";
+mapCaption.className = "map";
+mapCaption.id = "mapCaption";
+
+let lifeCounter = document.createElement('div');
+for (i = 0; i < 5; i++) {
+    var lifeSquare = document.createElement('button');
+    lifeSquare.id = "lifeSquare" + i;
+    lifeSquare.className = "buttons";
+    lifeSquare.style.height = "20px";
+    lifeSquare.style.width = "20px";
+    lifeSquare.style.margin = "10px";
+    lifeSquare.style.border = "1px";
+    lifeSquare.style.borderColor = "black";
+    lifeSquare.style.backgroundImage = null;
+    lifeCounter.appendChild(lifeSquare);
+}
+lifeCounter.style.top = "10px";
+
 let correctlyGuessedImages = [];
 let difficultyLevel = 1;
 let round = 1;
@@ -177,27 +206,12 @@ function runGame() {
 
     correctlyGuessedImages = [];
     let lives = 5;
-
+    down.innerHTML = "Select which building you think the image was taken in!";
     up.innerHTML = "Lives Remaining: " + lives;
 
-    let mapCaption = document.createElement('p');
-    mapCaption.textContent = "Hover over buildings for their name!";
-    mapCaption.className = "map";
-    mapCaption.id = "mapCaption";
     document.getElementById("map").appendChild(mapCaption);
-
-    // adds the visual map to the document, and function for clicking on buildings
     document.getElementById("map").appendChild(mapImage);
-
-    let score = document.createElement('button');
-    score.textContent = "Score = 0";
-    score.style.backgroundColor = "blue";
-    score.style.fontSize = "50px";
     document.getElementById("buttons").appendChild(score);
-
-    let hint = document.createElement('p');
-    hint.textContent = "No hint is available for this image.";
-    hint.className = "map";
     document.getElementById("image").appendChild(hint);
 
     // let hintButton = document.createElement('button');
@@ -212,37 +226,18 @@ function runGame() {
     //     document.getElementById("image").appendChild(document.getElementById('randImage'));
     // };
     
-    // Gets a random image from the map and adds it to the document
     let randImage = getImage();
     let buildingName = grabImageLocation(randImage);
-    console.log("image difficulty: " + difficultyMap.get(randImage));
+    
+    document.getElementById("buttons").appendChild(down);
+    document.getElementById("buttons").appendChild(document.getElementById('Button'));
+    document.getElementById("buttons").appendChild(up);
+    document.getElementById("buttons").appendChild(lifeCounter);
 
     down.style.marginTop = "100px";
     down.style.marginBottom = "100px";
-    document.getElementById("buttons").appendChild(down);
-
-    
-    document.getElementById("buttons").appendChild(document.getElementById('Button'));
-    document.getElementById("buttons").appendChild(up);
-
     up.style.marginTop = "100px";
 
-    let lifeCounter = document.createElement('div');
-    for (i = 0; i < 5; i++) {
-        var lifeSquare = document.createElement('button');
-        lifeSquare.id = "lifeSquare" + i;
-        lifeSquare.className = "buttons";
-        lifeSquare.style.height = "20px";
-        lifeSquare.style.width = "20px";
-        lifeSquare.style.margin = "10px";
-        lifeSquare.style.border = "1px";
-        lifeSquare.style.borderColor = "black";
-        lifeSquare.style.backgroundImage = null;
-        lifeCounter.appendChild(lifeSquare);
-    }
-    lifeCounter.style.top = "10px";
-    document.getElementById("buttons").appendChild(lifeCounter);
-    
     mapImage.addEventListener("load", () => {
         mapImage.contentDocument
             .querySelectorAll("#buildings > *")
@@ -336,7 +331,6 @@ function runGame() {
         runGame();
 
     }; 
-    down.innerHTML = "Select which building you think the image was taken in!";
 } 
 
 function Game_Rules(x) {
@@ -389,7 +383,7 @@ function newGame() {
     document.querySelector('#Button').onclick = 
     function() {
         correctlyGuessedImages = [];
-        document.body.removeChild(document.getElementById('randImage'));
+        document.getElementById("image").removeChild(document.getElementById('randImage'));
         runGame();
     }; 
 

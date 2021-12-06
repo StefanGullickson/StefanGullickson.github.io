@@ -160,14 +160,6 @@ difficultyMap.set("mac-guessr/markim4.jpg", 2); //Markim Hall - medium
 // difficultyMap.set("mac-guessr/_77mac3.jpg", 1); //77 Mac - easy
 // difficultyMap.set("mac-guessr/_77mac4.jpg", 2); //77 Mac - medium
 
-// 
-let mapImage = document.createElement('object');
-mapImage.data = 'mac-guessr/mcgpicnew.svg';
-mapImage.type = "image/svg+xml";
-mapImage.id = "mapImage";
-mapImage.style.height = "600px";
-mapImage.style.border = "thick solid black";
-
 let score = document.createElement('button');
 score.style.backgroundColor = "blue";
 score.style.fontSize = "50px";
@@ -189,6 +181,13 @@ let round = 1;
 
 // Begin game function: adds map and random image to body of document
 function runGame() {
+
+    let mapImage = document.createElement('object');
+    mapImage.data = 'mac-guessr/mcgpicnew.svg';
+    mapImage.type = "image/svg+xml";
+    mapImage.id = "mapImage";
+    mapImage.style.height = "600px";
+    mapImage.style.border = "thick solid black";
 
     correctlyGuessedImages = [];
     let lives = 5;
@@ -252,12 +251,13 @@ function runGame() {
                 building.addEventListener("click", () => {
                     // console.log(building.id);
                     // console.log(building.style); 
-
-
+                    console.log(building.id);
+                    console.log(buildingName);
                     // This if statement runs if the guess is correct
                     if (building.id === buildingName) {
-                        console.log(building.id);
-                        console.log(buildingName);
+
+                        console.log("correct");
+
                         updateDifficulty();
                         round++;
                         correctlyGuessedImages.push(randImage);
@@ -304,10 +304,9 @@ function runGame() {
                                 }; 
                             }; 
                         
-                                
-
                     // This else statement runs if the guess is incorrect
                     } else {
+                        console.log("incorrect");
 
                         var currLife = "lifeSquare" + (5 - lives);
                         lives -= 1;

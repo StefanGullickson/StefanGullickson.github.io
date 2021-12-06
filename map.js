@@ -169,7 +169,6 @@ mapImage.style.height = "600px";
 mapImage.style.border = "thick solid black";
 
 let score = document.createElement('button');
-score.textContent = "Score = 0";
 score.style.backgroundColor = "blue";
 score.style.fontSize = "50px";
 
@@ -183,20 +182,7 @@ mapCaption.className = "map";
 mapCaption.id = "mapCaption";
 
 let lifeCounter = document.createElement('div');
-for (i = 0; i < 5; i++) {
-    var lifeSquare = document.createElement('button');
-    lifeSquare.id = "lifeSquare" + i;
-    lifeSquare.className = "buttons";
-    lifeSquare.style.height = "20px";
-    lifeSquare.style.width = "20px";
-    lifeSquare.style.margin = "10px";
-    lifeSquare.style.border = "1px";
-    lifeSquare.style.borderColor = "black";
-    lifeSquare.style.backgroundImage = null;
-    lifeCounter.appendChild(lifeSquare);
-}
 lifeCounter.style.top = "10px";
-
 let correctlyGuessedImages = [];
 let difficultyLevel = 1;
 let round = 1;
@@ -206,13 +192,37 @@ function runGame() {
 
     correctlyGuessedImages = [];
     let lives = 5;
+    score.textContent = "Score = 0";
+
+    down.style.marginTop = "100px";
+    down.style.marginBottom = "100px";
+    down.style.color = "green";
     down.innerHTML = "Select which building you think the image was taken in!";
+
+    up.style.marginTop = "100px";
+    up.hidden = false;
     up.innerHTML = "Lives Remaining: " + lives;
 
     document.getElementById("map").appendChild(mapCaption);
     document.getElementById("map").appendChild(mapImage);
     document.getElementById("buttons").appendChild(score);
     document.getElementById("image").appendChild(hint);
+
+
+    let lifeCounter = document.createElement('div');
+    lifeCounter.style.top = "25px";
+    for (i = 0; i < 5; i++) {
+        var lifeSquare = document.createElement('button');
+        lifeSquare.id = "lifeSquare" + i;
+        lifeSquare.className = "buttons";
+        lifeSquare.style.height = "20px";
+        lifeSquare.style.width = "20px";
+        lifeSquare.style.margin = "10px";
+        lifeSquare.style.border = "1px";
+        lifeSquare.style.borderColor = "black";
+        lifeSquare.style.backgroundImage = null;
+        lifeCounter.appendChild(lifeSquare);
+    }
 
     // let hintButton = document.createElement('button');
     // hintButton.textContent = "click for hint";
@@ -234,9 +244,6 @@ function runGame() {
     document.getElementById("buttons").appendChild(up);
     document.getElementById("buttons").appendChild(lifeCounter);
 
-    down.style.marginTop = "100px";
-    down.style.marginBottom = "100px";
-    up.style.marginTop = "100px";
 
     mapImage.addEventListener("load", () => {
         mapImage.contentDocument
@@ -246,22 +253,26 @@ function runGame() {
                     // console.log(building.id);
                     // console.log(building.style); 
 
+
+                    // This if statement runs if the guess is correct
                     if (building.id === buildingName) {
+                        console.log(building.id);
+                        console.log(buildingName);
                         updateDifficulty();
                         round++;
-                        score.textContent = "Score: " + (round - 1) ;
-                        console.log("round: " + round);
-                        down.innerHTML = "Congratulations! That is correct! This image was taken in " + fullNameMap.get(buildingName) + ".";
-                        document.getElementById("countdown").hidden = false;
                         correctlyGuessedImages.push(randImage);
+                        score.textContent = "Score: " + correctlyGuessedImages.length;
+                        console.log("round: " + round);
+                        down.innerHTML = "Congratulations! That is correct! This image was taken in " + fullNameMap.get(buildingName) + ". Click the button to move on to the next round";
+                        document.getElementById("countdown").hidden = false;
                         mapCaption.textContent = "Hover mouse over buildings to see what they are called!";
                         document.getElementById("map").removeChild(mapCaption);
                         document.getElementById("map").removeChild(mapImage);
-                        var timeleft = 3;
-                        var downloadTimer = setInterval(function(){
 
-                            if(timeleft <= 0){
-                                clearInterval(downloadTimer);
+                        document.querySelector('#Button').textContent = 'Next Round';   
+                        document.querySelector('#Button').disabled = false;
+                        document.querySelector('#Button').onclick = 
+                            function() {
                                 document.getElementById("map").appendChild(mapCaption);
                                 document.getElementById("map").appendChild(mapImage);
                                 document.getElementById("countdown").textContent = null;
@@ -272,11 +283,30 @@ function runGame() {
                                 buildingName = grabImageLocation(randImage);
                                 down.innerHTML = "Select which building you think the image was taken in!";
 
-                            } else {
-                                document.getElementById("countdown").innerHTML = timeleft + " seconds before next round";
-                            }
-                            timeleft -= 1;
-                        }, 1000);
+                                document.getElementById("Button").textContent = "Reset Game";
+                                document.querySelector('#Button').onclick =
+                                function() {
+                                    document.getElementById("map").removeChild(mapImage);
+                                    document.getElementById("map").removeChild(mapCaption);
+                                    document.getElementById("image").removeChild(document.getElementById('randImage'));
+                                    document.getElementById("image").removeChild(hint);
+                                    document.getElementById("buttons").removeChild(up);
+                                    document.getElementById("buttons").removeChild(down);
+                                    document.getElementById("buttons").removeChild(score);
+                                    document.getElementById("buttons").removeChild(lifeCounter);  
+                                    for (i = 0; i < 5; i++) {
+                                        lifeCounter.removeChild; 
+                                    }
+                                    score.textContent = "Score = 0"
+                                    round = 1;
+                                    difficultyLevel = 1;
+                                    runGame();
+                                }; 
+                            }; 
+                        
+                                
+
+                    // This else statement runs if the guess is incorrect
                     } else {
 
                         var currLife = "lifeSquare" + (5 - lives);
@@ -289,8 +319,25 @@ function runGame() {
                         } else if  (lives === 0){
                             down.innerHTML = "That is incorrect. You lost! The correct building was " + fullNameMap.get(buildingName) + ".";
                             down.style.color = "red";
-                            up.innerHTML = "Final Score: " + correctlyGuessedImages.length;
-                            newGame();
+                            up.hidden = true;
+                            score.textContent = "Final Score = " + correctlyGuessedImages.length;
+                            document.getElementById("map").removeChild(mapImage);
+                            document.getElementById("map").removeChild(mapCaption);        
+                            document.getElementById("buttons").removeChild(lifeCounter);
+                            for (i = 0; i < 5; i++) {
+                                lifeCounter.removeChild; 
+                            }
+                            document.querySelector('#Button').textContent = 'New Game';   
+                            document.querySelector('#Button').disabled = false;
+                            document.querySelector('#Button').onclick = 
+                            function() {
+                                document.getElementById("image").removeChild(document.getElementById('randImage'));
+                                document.getElementById("buttons").removeChild(score);
+                                runGame();
+                            }; 
+                        
+                            round = 1;
+                            difficultyLevel = 1;
                         } else {
                             down.innerHTML = "That is incorrect. You have " + lives + " lives remaining.";
                             mapCaption.style.color = "red";
@@ -315,7 +362,7 @@ function runGame() {
     });
 
     document.getElementById("Button").textContent = "Reset Game";
-    document.querySelector('#Button').onclick = 
+    document.querySelector('#Button').onclick =
     function() {
         document.getElementById("map").removeChild(mapImage);
         document.getElementById("map").removeChild(mapCaption);
@@ -324,12 +371,14 @@ function runGame() {
         document.getElementById("buttons").removeChild(up);
         document.getElementById("buttons").removeChild(down);
         document.getElementById("buttons").removeChild(score);
-        document.getElementById("buttons").removeChild(lifeCounter);   
+        document.getElementById("buttons").removeChild(lifeCounter);  
+        for (i = 0; i < 5; i++) {
+            lifeCounter.removeChild; 
+        }
+        score.textContent = "Score = 0"
         round = 1;
         difficultyLevel = 1;
-        correctlyGuessedImages = [];
         runGame();
-
     }; 
 } 
 
@@ -369,26 +418,7 @@ function grabImageLocation(url) {
             break;
         }
     }
-    // console.log(building);
     return building;
-}
-
-function newGame() {
-    document.getElementById("map").removeChild(mapImage);
-    document.getElementById("map").removeChild(mapCaption);        
-    document.getElementById("buttons").removeChild(score);
-    document.getElementById("buttons").removeChild(lifeCounter);
-    document.querySelector('#Button').textContent = 'New Game';   
-    document.querySelector('#Button').disabled = false;
-    document.querySelector('#Button').onclick = 
-    function() {
-        correctlyGuessedImages = [];
-        document.getElementById("image").removeChild(document.getElementById('randImage'));
-        runGame();
-    }; 
-
-    round = 1;
-    difficultyLevel = 1;
 }
 
 function getImage() {

@@ -69,6 +69,23 @@ map.set(51, "mac-guessr/markim1.jpg"); //Markim Hall - hard
 map.set(52, "mac-guessr/markim2.jpg"); //Markim Hall - easy
 map.set(53, "mac-guessr/markim3.jpg"); //Markim Hall - hard
 map.set(54, "mac-guessr/markim4.jpg"); //Markim Hall - medium
+map.set(55, 'mac-guessr/jwall5.jpg'); //Janet Wallace Fine Arts Center - medium
+map.set(56, 'mac-guessr/jwall6.jpg'); //Janet Wallace Fine Arts Center - easy
+map.set(57, 'mac-guessr/jwall7.jpg'); //Janet Wallace Fine Arts Center - easy
+map.set(58, "mac-guessr/olin5.jpg"); //Olin-Rice Science Center - medium
+map.set(59, "mac-guessr/olin6.jpg"); //Olin-Rice Science Center - hard
+map.set(60, "mac-guessr/olin7.jpg"); //Olin-Rice Science Center - medium
+map.set(61, "mac-guessr/olin8.jpg"); //Olin-Rice Science Center - easy
+map.set(62, "mac-guessr/olin9.jpg"); //Olin-Rice Science Center - medium
+map.set(63, "mac-guessr/olin10.jpg"); //Olin-Rice Science Center - easy
+map.set(64, "mac-guessr/olin11.jpg"); //Olin-Rice Science Center - hard
+map.set(65, "mac-guessr/olin12.jpg"); //Olin-Rice Science Center - easy
+map.set(66, 'mac-guessr/leonard5.jpg'); //Leonard Center Athletics and Wellness Complex - medium
+map.set(67, 'mac-guessr/leonard6.jpg'); //Leonard Center Athletics and Wellness Complex - easy
+map.set(68, 'mac-guessr/leonard7.jpg'); //Leonard Center Athletics and Wellness Complex - easy
+map.set(69, 'mac-guessr/leonard8.jpg'); //Leonard Center Athletics and Wellness Complex - easy
+map.set(70, 'mac-guessr/leonard9.jpg'); //Leonard Center Athletics and Wellness Complex - hard
+
 // map.set(55, "mac-guessr/_77mac1.jpg"); //77 Mac - easy
 // map.set(56, "mac-guessr/_77mac2.jpg"); //77 Mac - hard
 // map.set(57, "mac-guessr/_77mac3.jpg"); //77 Mac - easy
@@ -155,6 +172,22 @@ difficultyMap.set("mac-guessr/markim1.jpg", 3); //Markim Hall - hard
 difficultyMap.set("mac-guessr/markim2.jpg", 1); //Markim Hall - easy
 difficultyMap.set("mac-guessr/markim3.jpg", 3); //Markim Hall - hard
 difficultyMap.set("mac-guessr/markim4.jpg", 2); //Markim Hall - medium
+difficultyMap.set('mac-guessr/jwall5.jpg', 2); //Janet Wallace Fine Arts Center - medium
+difficultyMap.set('mac-guessr/jwall6.jpg', 1); //Janet Wallace Fine Arts Center - easy
+difficultyMap.set('mac-guessr/jwall7.jpg', 1); //Janet Wallace Fine Arts Center - easy
+difficultyMap.set("mac-guessr/olin5.jpg", 2); //Olin-Rice Science Center - medium
+difficultyMap.set("mac-guessr/olin6.jpg", 3); //Olin-Rice Science Center - hard
+difficultyMap.set("mac-guessr/olin7.jpg", 2); //Olin-Rice Science Center - medium
+difficultyMap.set("mac-guessr/olin8.jpg", 1); //Olin-Rice Science Center - easy
+difficultyMap.set("mac-guessr/olin9.jpg", 2); //Olin-Rice Science Center - medium
+difficultyMap.set("mac-guessr/olin10.jpg", 1); //Olin-Rice Science Center - easy
+difficultyMap.set("mac-guessr/olin11.jpg", 3); //Olin-Rice Science Center - hard
+difficultyMap.set("mac-guessr/olin12.jpg", 1); //Olin-Rice Science Center - easy
+difficultyMap.set('mac-guessr/leonard5.jpg', 2); //Leonard Center Athletics and Wellness Complex - medium
+difficultyMap.set('mac-guessr/leonard6.jpg', 1); //Leonard Center Athletics and Wellness Complex - easy
+difficultyMap.set('mac-guessr/leonard7.jpg', 1); //Leonard Center Athletics and Wellness Complex - easy
+difficultyMap.set('mac-guessr/leonard8.jpg', 1); //Leonard Center Athletics and Wellness Complex - easy
+difficultyMap.set('mac-guessr/leonard9.jpg', 3); //Leonard Center Athletics and Wellness Complex - hard
 // difficultyMap.set("mac-guessr/_77mac1.jpg", 1); //77 Mac - easy
 // difficultyMap.set("mac-guessr/_77mac2.jpg", 3); //77 Mac - hard
 // difficultyMap.set("mac-guessr/_77mac3.jpg", 1); //77 Mac - easy

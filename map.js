@@ -85,6 +85,38 @@ map.set(67, 'mac-guessr/leonard6.jpg'); //Leonard Center Athletics and Wellness 
 map.set(68, 'mac-guessr/leonard7.jpg'); //Leonard Center Athletics and Wellness Complex - easy
 map.set(69, 'mac-guessr/leonard8.jpg'); //Leonard Center Athletics and Wellness Complex - easy
 map.set(70, 'mac-guessr/leonard9.jpg'); //Leonard Center Athletics and Wellness Complex - hard
+map.set(71, "mac-guessr/cc5.jpg"); //Ruth Stricker Dayton Campus Center - easy
+map.set(72, "mac-guessr/cc6.jpg"); //Ruth Stricker Dayton Campus Center - hard
+map.set(73, "mac-guessr/cc7.jpg"); //Ruth Stricker Dayton Campus Center - easy
+map.set(74, "mac-guessr/cc8.jpg"); //Ruth Stricker Dayton Campus Center - hard
+map.set(75, "mac-guessr/cc9.jpg"); //Ruth Stricker Dayton Campus Center - hard
+map.set(76, "mac-guessr/oldmain5.jpg"); //Old Main - hard
+map.set(77, "mac-guessr/oldmain6.jpg"); //Old Main - medium
+map.set(78, "mac-guessr/oldmain7.jpg"); //Old Main - medium
+map.set(79, "mac-guessr/oldmain8.jpg"); //Old Main - hard
+map.set(80, "mac-guessr/oldmain9.jpg"); //Old Main - medium
+map.set(81, "mac-guessr/oldmain10.jpg"); //Old Main - hard
+map.set(82, "mac-guessr/oldmain11.jpg"); //Old Main - hard
+map.set(83, "mac-guessr/oldmain12.jpg"); //Old Main - easy
+map.set(84, "mac-guessr/weyerhaeuser5.jpg"); //Weyerhaeuser Hall - hard
+map.set(85, "mac-guessr/weyerhaeuser6.jpg"); //Weyerhaeuser Hall - hard
+map.set(86, "mac-guessr/weyerhaeuser7.jpg"); //Weyerhaeuser Hall - hard
+map.set(87, "mac-guessr/weyerhaeuser8.JPG"); //Weyerhaeuser Hall - hard
+map.set(88, "mac-guessr/weyerhaeuser9.jpg"); //Weyerhaeuser Hall - hard
+map.set(89, "mac-guessr/weyerhaeuser10.jpg"); //Weyerhaeuser Hall - hard
+map.set(90, 'mac-guessr/library5.jpg'); //DeWitt Wallace Library - easy
+map.set(91, 'mac-guessr/library6.jpg'); //DeWitt Wallace Library - easy
+map.set(92, 'mac-guessr/library7.jpg'); //DeWitt Wallace Library - hard
+map.set(93, 'mac-guessr/library8.jpg'); //DeWitt Wallace Library - easy
+map.set(94, 'mac-guessr/library9.jpg'); //DeWitt Wallace Library - easy
+map.set(95, 'mac-guessr/library10.jpg'); //DeWitt Wallace Library - hard
+map.set(96, 'mac-guessr/library11.jpg'); //DeWitt Wallace Library - medium
+map.set(97, "mac-guessr/chapel5.JPG"); //The Weyerhaeuser Memorial Chapel - easy
+map.set(98, "mac-guessr/chapel6.jpg"); //The Weyerhaeuser Memorial Chapel - hard
+map.set(99, "mac-guessr/theater1.jpg"); //Theater and Dance Building - easy
+map.set(100, "mac-guessr/theater2.jpg"); //Theater and Dance Building - hard
+map.set(101, "mac-guessr/theater3.jpg"); //Theater and Dance Building - medium
+map.set(102, "mac-guessr/theater4.jpg"); //Theater and Dance Building - hard
 
 // map.set(55, "mac-guessr/_77mac1.jpg"); //77 Mac - easy
 // map.set(56, "mac-guessr/_77mac2.jpg"); //77 Mac - hard
@@ -188,6 +220,38 @@ difficultyMap.set('mac-guessr/leonard6.jpg', 1); //Leonard Center Athletics and 
 difficultyMap.set('mac-guessr/leonard7.jpg', 1); //Leonard Center Athletics and Wellness Complex - easy
 difficultyMap.set('mac-guessr/leonard8.jpg', 1); //Leonard Center Athletics and Wellness Complex - easy
 difficultyMap.set('mac-guessr/leonard9.jpg', 3); //Leonard Center Athletics and Wellness Complex - hard
+difficultyMap.set("mac-guessr/cc5.jpg", 1); //Ruth Stricker Dayton Campus Center - easy
+difficultyMap.set("mac-guessr/cc6.jpg", 3); //Ruth Stricker Dayton Campus Center - hard
+difficultyMap.set("mac-guessr/cc7.jpg", 1); //Ruth Stricker Dayton Campus Center - easy
+difficultyMap.set("mac-guessr/cc8.jpg", 3); //Ruth Stricker Dayton Campus Center - hard
+difficultyMap.set("mac-guessr/cc9.jpg", 3); //Ruth Stricker Dayton Campus Center - hard
+difficultyMap.set("mac-guessr/oldmain5.jpg", 3); //Old Main - hard
+difficultyMap.set("mac-guessr/oldmain6.jpg", 2); //Old Main - medium
+difficultyMap.set("mac-guessr/oldmain7.jpg", 2); //Old Main - medium
+difficultyMap.set("mac-guessr/oldmain8.jpg", 3); //Old Main - hard
+difficultyMap.set("mac-guessr/oldmain9.jpg", 2); //Old Main - medium
+difficultyMap.set("mac-guessr/oldmain10.jpg", 3); //Old Main - hard
+difficultyMap.set("mac-guessr/oldmain11.jpg", 3); //Old Main - hard
+difficultyMap.set("mac-guessr/oldmain12.jpg", 1); //Old Main - easy
+difficultyMap.set("mac-guessr/weyerhaeuser5.jpg", 3); //Weyerhaeuser Hall - hard
+difficultyMap.set("mac-guessr/weyerhaeuser6.jpg", 3); //Weyerhaeuser Hall - hard
+difficultyMap.set("mac-guessr/weyerhaeuser7.jpg", 3); //Weyerhaeuser Hall - hard
+difficultyMap.set("mac-guessr/weyerhaeuser8.JPG", 3); //Weyerhaeuser Hall - hard
+difficultyMap.set("mac-guessr/weyerhaeuser9.jpg", 3); //Weyerhaeuser Hall - hard
+difficultyMap.set("mac-guessr/weyerhaeuser10.jpg", 3); //Weyerhaeuser Hall - hard
+difficultyMap.set('mac-guessr/library5.jpg', 1); //DeWitt Wallace Library - easy
+difficultyMap.set('mac-guessr/library6.jpg', 1); //DeWitt Wallace Library - easy
+difficultyMap.set('mac-guessr/library7.jpg', 3); //DeWitt Wallace Library - hard
+difficultyMap.set('mac-guessr/library8.jpg', 1); //DeWitt Wallace Library - easy
+difficultyMap.set('mac-guessr/library9.jpg', 1); //DeWitt Wallace Library - easy
+difficultyMap.set('mac-guessr/library10.jpg', 3); //DeWitt Wallace Library - hard
+difficultyMap.set('mac-guessr/library11.jpg', 2); //DeWitt Wallace Library - medium
+difficultyMap.set("mac-guessr/chapel5.JPG", 1); //The Weyerhaeuser Memorial Chapel - easy
+difficultyMap.set("mac-guessr/chapel6.jpg", 3); //The Weyerhaeuser Memorial Chapel - hard
+difficultyMap.set("mac-guessr/theater1.jpg", 1); //Theater and Dance Building - easy
+difficultyMap.set("mac-guessr/theater2.jpg", 3); //Theater and Dance Building - hard
+difficultyMap.set("mac-guessr/theater3.jpg", 2); //Theater and Dance Building - medium
+difficultyMap.set("mac-guessr/theater4.jpg", 3); //Theater and Dance Building - hard
 // difficultyMap.set("mac-guessr/_77mac1.jpg", 1); //77 Mac - easy
 // difficultyMap.set("mac-guessr/_77mac2.jpg", 3); //77 Mac - hard
 // difficultyMap.set("mac-guessr/_77mac3.jpg", 1); //77 Mac - easy

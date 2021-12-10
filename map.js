@@ -117,16 +117,10 @@ map.set(99, "mac-guessr/theater1.jpg"); //Theater and Dance Building - easy
 map.set(100, "mac-guessr/theater2.jpg"); //Theater and Dance Building - hard
 map.set(101, "mac-guessr/theater3.jpg"); //Theater and Dance Building - medium
 map.set(102, "mac-guessr/theater4.jpg"); //Theater and Dance Building - hard
-
-// map.set(55, "mac-guessr/_77mac1.jpg"); //77 Mac - easy
-// map.set(56, "mac-guessr/_77mac2.jpg"); //77 Mac - hard
-// map.set(57, "mac-guessr/_77mac3.jpg"); //77 Mac - easy
-// map.set(58, "mac-guessr/_77mac4.jpg"); //77 Mac - medium
-
-
-//total easy - 21
-//total medium - 22
-//total hard - 16
+map.set(103, "mac-guessr/seven1.jpg"); //77 Mac - easy
+map.set(104, "mac-guessr/seven2.jpg"); //77 Mac - hard
+map.set(105, "mac-guessr/seven3.jpg"); //77 Mac - easy
+map.set(106, "mac-guessr/seven4.jpg"); //77 Mac - medium
 
 
 const fullNameMap = new Map();
@@ -144,7 +138,7 @@ fullNameMap.set('chapel', 'The Weyerhaeuser Memorial Chapel');
 fullNameMap.set('markim', 'Markim Hall');
 fullNameMap.set('kagin', 'Kagin Commons');
 fullNameMap.set('weyerhaeuser', 'Weyerhaeuser Hall');
-fullNameMap.set('_77mac', '77 Mac');
+fullNameMap.set('seven', '77 Mac');
 fullNameMap.set('stadium', 'Macalester Stadium');
 fullNameMap.set('kirk', 'Kirk Hall');
 
@@ -252,10 +246,10 @@ difficultyMap.set("mac-guessr/theater1.jpg", 1); //Theater and Dance Building - 
 difficultyMap.set("mac-guessr/theater2.jpg", 3); //Theater and Dance Building - hard
 difficultyMap.set("mac-guessr/theater3.jpg", 2); //Theater and Dance Building - medium
 difficultyMap.set("mac-guessr/theater4.jpg", 3); //Theater and Dance Building - hard
-// difficultyMap.set("mac-guessr/_77mac1.jpg", 1); //77 Mac - easy
-// difficultyMap.set("mac-guessr/_77mac2.jpg", 3); //77 Mac - hard
-// difficultyMap.set("mac-guessr/_77mac3.jpg", 1); //77 Mac - easy
-// difficultyMap.set("mac-guessr/_77mac4.jpg", 2); //77 Mac - medium
+difficultyMap.set("mac-guessr/seven1.jpg", 1); //77 Mac - easy
+difficultyMap.set("mac-guessr/seven2.jpg", 3); //77 Mac - hard
+difficultyMap.set("mac-guessr/seven3.jpg", 1); //77 Mac - easy
+difficultyMap.set("mac-guessr/seven4.jpg", 2); //77 Mac - medium
 
 let score = document.createElement('button');
 score.style.backgroundColor = "blue";

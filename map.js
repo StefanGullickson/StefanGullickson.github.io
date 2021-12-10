@@ -512,11 +512,11 @@ function grabImageLocation(url) {
 }
 
 function getImage() {
-    let randNum = getRandomNumber(102);
+    let randNum = getRandomNumber(106);
     var randImage = map.get(randNum);
 
     while (correctlyGuessedImages.includes(randImage) || difficultyMap.get(randImage) != difficultyLevel) {
-        randNum = getRandomNumber(102);
+        randNum = getRandomNumber(106);
         randImage = map.get(randNum);
     }
 

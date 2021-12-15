@@ -542,18 +542,6 @@ function getRandomNumber(max) {
     return Math.round((Math.random()*max));
 }
 
-function Game_Rules() {
-    let item = document.getElementById("How_To");
-    item.style.color = "lightgray";
-    item.style.fontSize = "21px";
-}
-
-function mouseOut() {
-    let item = document.getElementById("How_To");
-    item.style.color = "rgb(194, 194, 194)";
-    item.style.fontSize = "20px";
-}
-
 function grabImageLocation(url) {
     let numbers = "0123456789";
     let building = "";

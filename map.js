@@ -450,6 +450,7 @@ function runGame() {
                             down.innerHTML = "That is incorrect. You have " + lives + " lives remaining. \n \n Click the button to move on to the next round.";
                             mapCaption.style.color = "red";
                             up.innerHTML = "Lives Remaining: " + lives; 
+                            down.style.color = "red";
 
                             round++;
                             incorrectlyGuessedImages.push(randImage);
@@ -471,6 +472,7 @@ function runGame() {
                                     console.log("image difficulty: " + difficultyMap.get(randImage));
                                     buildingName = grabImageLocation(randImage);
                                     down.innerHTML = "Select which building you think the image was taken in!";
+                                    down.style.color = "green";
 
                                     document.getElementById("Button").textContent = "Reset Game";
                                     document.querySelector('#Button').onclick =

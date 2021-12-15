@@ -10,6 +10,20 @@ link.type = 'text/css';
 link.href = 'layout.css'; 
 document.body.appendChild(link);
 
+let congrats = document.createElement('img');
+congrats.src = "mac-guessr/Correct.png";
+congrats.id = "congrats";
+congrats.style.height = "600px";
+
+let incorrect = document.createElement('img');
+incorrect.src = "mac-guessr/Incorrect.png";
+incorrect.id = "incorrect";
+incorrect.style.height = "600px";
+
+let endgame = document.createElement('img');
+endgame.src = "mac-guessr/EndGame.png";
+endgame.id = "endgame";
+endgame.style.height = "600px";
 /* Map of images to randomly select from; each image file name minus the photo number 
 * matches its corresponding svg object ID
 */
@@ -267,6 +281,7 @@ mapCaption.id = "mapCaption";
 let lifeCounter = document.createElement('div');
 lifeCounter.style.top = "10px";
 let correctlyGuessedImages = [];
+let incorrectlyGuessedImages = [];
 let difficultyLevel = 1;
 let round = 1;
 
@@ -281,6 +296,7 @@ function runGame() {
     mapImage.style.border = "thick solid black";
 
     correctlyGuessedImages = [];
+    incorrectlyGuessedImages = [];
     let lives = 5;
     score.textContent = "Score = 0";
 
@@ -354,16 +370,18 @@ function runGame() {
                         correctlyGuessedImages.push(randImage);
                         score.textContent = "Score: " + correctlyGuessedImages.length;
                         console.log("round: " + round);
-                        down.innerHTML = "Congratulations! That is correct! This image was taken in " + fullNameMap.get(buildingName) + ". Click the button to move on to the next round";
-                        document.getElementById("countdown").hidden = false;
+                        down.innerHTML = "Congratulations! That is correct! This image was taken in " + fullNameMap.get(buildingName) + ".  \n \n Click the button to move on to the next round.";
+
                         mapCaption.textContent = "Hover mouse over buildings to see what they are called!";
                         document.getElementById("map").removeChild(mapCaption);
                         document.getElementById("map").removeChild(mapImage);
+                        document.getElementById("map").appendChild(congrats);
 
                         document.querySelector('#Button').textContent = 'Next Round';   
                         document.querySelector('#Button').disabled = false;
                         document.querySelector('#Button').onclick = 
                             function() {
+                                document.getElementById("map").removeChild(congrats);
                                 document.getElementById("map").appendChild(mapCaption);
                                 document.getElementById("map").appendChild(mapImage);
                                 document.getElementById("countdown").textContent = null;
@@ -403,10 +421,8 @@ function runGame() {
                         lives -= 1;
                         document.getElementById(currLife).style.backgroundColor = "red";
 
-                        if (lives === 1) {
-                            down.innerHTML = "That is incorrect. You have " + lives + " life remaining.";
-                            up.innerHTML = "Lives Remaining: " + lives;
-                        } else if  (lives === 0){
+
+                        if (lives === 0){
                             down.innerHTML = "That is incorrect. You lost! The correct building was " + fullNameMap.get(buildingName) + ".";
                             down.style.color = "red";
                             up.hidden = true;
@@ -414,6 +430,7 @@ function runGame() {
                             document.getElementById("map").removeChild(mapImage);
                             document.getElementById("map").removeChild(mapCaption);        
                             document.getElementById("buttons").removeChild(lifeCounter);
+                            document.getElementById("map").appendChild(endgame);  
                             for (i = 0; i < 5; i++) {
                                 lifeCounter.removeChild; 
                             }
@@ -422,6 +439,7 @@ function runGame() {
                             document.querySelector('#Button').onclick = 
                             function() {
                                 document.getElementById("image").removeChild(document.getElementById('randImage'));
+                                document.getElementById("map").removeChild(endgame);
                                 document.getElementById("buttons").removeChild(score);
                                 runGame();
                             }; 
@@ -429,9 +447,51 @@ function runGame() {
                             round = 1;
                             difficultyLevel = 1;
                         } else {
-                            down.innerHTML = "That is incorrect. You have " + lives + " lives remaining.";
+                            down.innerHTML = "That is incorrect. You have " + lives + " lives remaining. \n \n Click the button to move on to the next round.";
                             mapCaption.style.color = "red";
-                            up.innerHTML = "Lives Remaining: " + lives;
+                            up.innerHTML = "Lives Remaining: " + lives; 
+
+                            round++;
+                            incorrectlyGuessedImages.push(randImage);
+                            mapCaption.textContent = "Hover mouse over buildings to see what they are called!";
+                            document.getElementById("map").removeChild(mapCaption);
+                            document.getElementById("map").removeChild(mapImage);
+                            document.getElementById("map").appendChild(incorrect);
+
+                            document.querySelector('#Button').textContent = 'Next Round';   
+                            document.querySelector('#Button').disabled = false;
+                            document.querySelector('#Button').onclick = 
+                                function() {
+                                    document.getElementById("map").removeChild(incorrect);
+                                    document.getElementById("map").appendChild(mapCaption);
+                                    document.getElementById("map").appendChild(mapImage);
+
+                                    document.getElementById("image").removeChild(document.getElementById('randImage'));
+                                    randImage = getImage();
+                                    console.log("image difficulty: " + difficultyMap.get(randImage));
+                                    buildingName = grabImageLocation(randImage);
+                                    down.innerHTML = "Select which building you think the image was taken in!";
+
+                                    document.getElementById("Button").textContent = "Reset Game";
+                                    document.querySelector('#Button').onclick =
+                                    function() {
+                                        document.getElementById("map").removeChild(mapImage);
+                                        document.getElementById("map").removeChild(mapCaption);
+                                        document.getElementById("image").removeChild(document.getElementById('randImage'));
+                                        document.getElementById("image").removeChild(hint);
+                                        document.getElementById("buttons").removeChild(up);
+                                        document.getElementById("buttons").removeChild(down);
+                                        document.getElementById("buttons").removeChild(score);
+                                        document.getElementById("buttons").removeChild(lifeCounter);  
+                                        for (i = 0; i < 5; i++) {
+                                            lifeCounter.removeChild; 
+                                        }
+                                        score.textContent = "Score = 0"
+                                        round = 1;
+                                        difficultyLevel = 1;
+                                        runGame();
+                                    }; 
+                                }; 
                         }
                         
                     }
@@ -515,7 +575,7 @@ function getImage() {
     let randNum = getRandomNumber(106);
     var randImage = map.get(randNum);
 
-    while (correctlyGuessedImages.includes(randImage) || difficultyMap.get(randImage) != difficultyLevel) {
+    while (correctlyGuessedImages.includes(randImage) || difficultyMap.get(randImage) != difficultyLevel || incorrectlyGuessedImages.includes(randImage)) {
         randNum = getRandomNumber(106);
         randImage = map.get(randNum);
     }
